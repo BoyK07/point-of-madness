@@ -1,6 +1,6 @@
 @props(['name', 'role', 'description', 'imagePath'])
 
-<div class="relative w-full h-64 bg-gray-800 rounded-lg overflow-hidden">
+<div class="relative w-full h-64 bg-gray-800 rounded-lg overflow-hidden shadow-lg shadow-gray-900/30">
     <!-- Background image that fills the entire card -->
     <img src="{{ $imagePath }}" alt="{{ $name }}" class="absolute inset-0 w-full h-full object-cover">
 

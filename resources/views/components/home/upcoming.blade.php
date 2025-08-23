@@ -1,18 +1,52 @@
-<div class="mt-10 max-w-3xl">
-    <h2 class="font-semibold text-white text-lg mb-4">
+<div class="mt-10 w-full">
+    <h2 class="font-semibold text-white text-2xl mb-4">
         Upcoming Shows
     </h2>
-    <div
-        class="flex flex-col items-center text-center text-xs md:text-sm text-gray-400 bg-[#161B22] rounded-lg p-6 border border-gray-800">
-        <div class="rounded-lg mb-3 w-full max-w-xs h-32 bg-gray-700 flex items-center justify-center">
-            <i class="fas fa-calendar-alt text-gray-500 text-2xl"></i>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="relative rounded-lg overflow-hidden">
+            <img alt="Upcoming Show"
+                class="w-full object-cover h-64" src="images/upcoming_show.png" />
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 bg-black bg-opacity-40">
+                <h3 class="text-white font-bold text-xl">
+                    Upcoming Show Title
+                </h3>
+                <p class="text-white text-sm mt-2">
+                    Date: TBD
+                </p>
+                <p class="text-white text-sm mt-2">
+                    Location: TBD
+                </p>
+            </div>
         </div>
-        <p class="font-semibold text-white mb-1">
-            No Upcoming Shows
-        </p>
-        <p class="max-w-xs">
-            Stay tuned for future announcements. We're always working on bringing our music to new
-            audiences.
-        </p>
+        <div class="relative rounded-lg overflow-hidden">
+            <img alt="Upcoming Show"
+                class="w-full object-cover h-64" src="images/upcoming_show.png" />
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 bg-black bg-opacity-40">
+                <h3 class="text-white font-bold text-xl">
+                    Upcoming Show Title
+                </h3>
+                <p class="text-white text-sm mt-2">
+                    Date: TBD
+                </p>
+                <p class="text-white text-sm mt-2">
+                    Location: TBD
+                </p>
+            </div>
+        </div>
+        <div class="relative rounded-lg overflow-hidden">
+            <img alt="Upcoming Show"
+                class="w-full object-cover h-64" src="images/upcoming_show.png" />
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 bg-black bg-opacity-40">
+                <h3 class="text-white font-bold text-xl">
+                    Upcoming Show Title
+                </h3>
+                <p class="text-white text-sm mt-2">
+                    Date: TBD
+                </p>
+                <p class="text-white text-sm mt-2">
+                    Location: TBD
+                </p>
+            </div>
+        </div>
     </div>
 </div>

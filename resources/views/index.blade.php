@@ -4,10 +4,8 @@
 
         <x-home.about />
 
-        <x-home.music />
+        <x-home.about_band />
 
         <x-home.upcoming />
-
-        <x-home.contact />
     </div>
 </x-app-layout>
