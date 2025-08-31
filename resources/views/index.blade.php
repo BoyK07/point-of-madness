@@ -4,7 +4,7 @@
 
         <x-home.about />
 
-        <x-home.about_band />
+        <x-home.members />
 
         <x-home.upcoming />
     </div>

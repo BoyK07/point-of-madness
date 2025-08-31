@@ -10,31 +10,31 @@
                     'name' => 'Floris Anker',
                     'role' => 'Bassist',
                     'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-                    'imagePath' => 'images/about_cards/floris_anker.png',
+                    'imagePath' => 'images/member_cards/floris_anker.png',
                 ],
                 [
                     'name' => 'Kay Spijker',
                     'role' => 'Guitarist',
                     'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-                    'imagePath' => 'images/about_cards/kay.png',
+                    'imagePath' => 'images/member_cards/kay.png',
                 ],
                 [
                     'name' => 'Sem van Dongen',
                     'role' => 'Vocalist',
                     'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-                    'imagePath' => 'images/about_cards/sem_van_dongen.png',
+                    'imagePath' => 'images/member_cards/sem_van_dongen.png',
                 ],
                 [
                     'name' => 'Kai de Wild',
                     'role' => 'Drummer',
                     'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-                    'imagePath' => 'images/about_cards/kai.png',
+                    'imagePath' => 'images/member_cards/kai.png',
                 ],
             ];
         @endphp
 
         @foreach($members as $member)
-            <x-home.partials.about-card
+            <x-home.partials.member-card
                 :name="$member['name']"
                 :role="$member['role']"
                 :description="$member['description']"

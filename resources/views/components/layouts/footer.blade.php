@@ -5,7 +5,7 @@
         <a aria-label="Twitter" class="hover:text-white transition-colors" href="#">
             <i class="fab fa-twitter text-sm"></i>
         </a>
-        <a aria-label="Instagram" class="hover:text-white transition-colors" href="#">
+        <a aria-label="Instagram" class="hover:text-white transition-colors" href="https://www.instagram.com/pointofmadnessband/">
             <i class="fab fa-instagram text-sm"></i>
         </a>
         <a aria-label="Facebook" class="hover:text-white transition-colors" href="#">
