@@ -19,24 +19,24 @@
             <!-- Text Content -->
             <div class="space-y-6">
                 <div class="relative">
-                    <div class="absolute -left-4 top-0 w-1 bottom-0 bg-gradient-to-b from-blue-500 to-purple-500 rounded-full"></div>
-                    <p class="text-gray-300 text-lg leading-relaxed pl-8">
+                    <div class="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-blue-500 to-purple-500 rounded-full"></div>
+                    <p class="text-gray-300 text-lg leading-relaxed pl-1">
                         Meet Point Of Madness, a four-piece band born from a shared love of 80s new wave. 
                         Formed in 2023, their music is fueled by drum computers, catchy basslines, and fiery guitar riffs.
                     </p>
                 </div>
                 
                 <div class="relative">
-                    <div class="absolute -left-4 top-0 w-1 bottom-0 bg-gradient-to-b from-purple-500 to-gray-500 rounded-full"></div>
-                    <p class="text-gray-300 text-lg leading-relaxed pl-8">
+                    <div class="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-purple-500 to-gray-500 rounded-full"></div>
+                    <p class="text-gray-300 text-lg leading-relaxed pl-1">
                         With Floris Anker on bass, Kay Spijker on guitar, Sem van Dongen on vocals, and Kai de Wild on drums, 
                         they're on a mission to revive the spirit of the past in today's tech-driven world.
                     </p>
                 </div>
                 
                 <div class="relative">
-                    <div class="absolute -left-4 top-0 w-1 bottom-0 bg-gradient-to-b from-gray-500 to-blue-500 rounded-full"></div>
-                    <p class="text-gray-300 text-lg leading-relaxed pl-8">
+                    <div class="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-gray-500 to-blue-500 rounded-full"></div>
+                    <p class="text-gray-300 text-lg leading-relaxed pl-1">
                         Get ready to experience a blend of retro vibes and modern sounds that'll transport you 
                         back in time while keeping you rooted in the present.
                     </p>
