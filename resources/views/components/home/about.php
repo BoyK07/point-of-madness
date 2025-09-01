@@ -1,29 +1,93 @@
-<div class="mt-12">
-    <h2 class="font-semibold text-white text-2xl mb-2">
-        About the band
-    </h2>
-
-    <p class="flex flex-col gap-2">
-        <span>
-
-            Point of Madness is een energieke drie-mansformatie die de geest van de jaren '80 new wave nieuw
-            leven inblaast. Met een unieke mix van synth-gedreven melodieën, dansbare ritmes en
-            atmosferische soundscapes, weet de band een geluid te creëren dat zowel nostalgisch
-            als fris klinkt.
-        </span>
-        <span>
-
-            Geïnspireerd door iconen zoals Depeche Mode en New Order, combineert Point of Madness
-            retro vibes met moderne productie, waardoor elke track uitnodigt om te bewegen én mee
-            te dromen. Hun live-optredens staan bekend om hun intense energie, strakke
-            uitvoeringen en meeslepende visuele sfeer, waardoor fans keer op keer worden meegezogen
-            in hun muzikale universum.
-        </span>
-        <span>
-
-            Met hun muziek wil Point of Madness een brug slaan tussen generaties: een ode aan het verleden, maar met een
-            blik op de toekomst. Hun nummers nemen je mee op een reis van melancholie, euforie en
-            pure muzikale passie, perfect voor zowel de dansvloer als het luisteren thuis.
-        </span>
-    </p>
+<!-- Professional About Section -->
+<div class="relative py-24 px-6">
+    <!-- Professional Background -->
+    <div class="absolute inset-0 bg-gradient-to-r from-gray-900/30 to-gray-800/30"></div>
+    <div class="absolute top-0 left-1/4 w-64 h-64 bg-blue-900/10 rounded-full filter blur-3xl"></div>
+    <div class="absolute bottom-0 right-1/4 w-64 h-64 bg-purple-900/10 rounded-full filter blur-3xl"></div>
+    
+    <div class="relative max-w-4xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                <span class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                    About the Band
+                </span>
+            </h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <!-- Text Content -->
+            <div class="space-y-6">
+                <div class="relative">
+                    <div class="absolute -left-4 top-0 w-1 bottom-0 bg-gradient-to-b from-blue-500 to-purple-500 rounded-full"></div>
+                    <p class="text-gray-300 text-lg leading-relaxed pl-8">
+                        Meet Point Of Madness, a four-piece band born from a shared love of 80s new wave. 
+                        Formed in 2023, their music is fueled by drum computers, catchy basslines, and fiery guitar riffs.
+                    </p>
+                </div>
+                
+                <div class="relative">
+                    <div class="absolute -left-4 top-0 w-1 bottom-0 bg-gradient-to-b from-purple-500 to-gray-500 rounded-full"></div>
+                    <p class="text-gray-300 text-lg leading-relaxed pl-8">
+                        With Floris Anker on bass, Kay Spijker on guitar, Sem van Dongen on vocals, and Kai de Wild on drums, 
+                        they're on a mission to revive the spirit of the past in today's tech-driven world.
+                    </p>
+                </div>
+                
+                <div class="relative">
+                    <div class="absolute -left-4 top-0 w-1 bottom-0 bg-gradient-to-b from-gray-500 to-blue-500 rounded-full"></div>
+                    <p class="text-gray-300 text-lg leading-relaxed pl-8">
+                        Get ready to experience a blend of retro vibes and modern sounds that'll transport you 
+                        back in time while keeping you rooted in the present.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Stats & Highlights -->
+            <div class="space-y-6">
+                <div class="bg-gradient-to-br from-gray-700/20 to-gray-600/20 backdrop-blur-sm border border-gray-500/20 rounded-xl p-6">
+                    <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-blue-400 rounded-full"></span>
+                        Quick Facts
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-400">Formed</span>
+                            <span class="text-white font-semibold">2023</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-400">Origin</span>
+                            <span class="text-white font-semibold">Netherlands</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-400">Genre</span>
+                            <span class="text-white font-semibold">New Wave Revival</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-400">Members</span>
+                            <span class="text-white font-semibold">4</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-blue-600/20 to-purple-600/20 backdrop-blur-sm border border-blue-500/20 rounded-xl p-6">
+                    <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-purple-400 rounded-full"></span>
+                        Latest Release
+                    </h3>
+                    <div class="flex items-center gap-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-semibold">Secondary</h4>
+                            <p class="text-gray-400 text-sm">Latest Single • 2025</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

@@ -1,3 +1,189 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* 80s New Wave Custom Styles */
+@layer base {
+    body {
+        font-family: 'Figtree', sans-serif;
+        background: #1f0f12;
+    }
+}
+
+@layer components {
+    /* Neon glow effects */
+    .neon-pink {
+        text-shadow: 
+            0 0 5px #ff1493,
+            0 0 10px #ff1493,
+            0 0 15px #ff1493,
+            0 0 20px #ff1493;
+    }
+    
+    .neon-cyan {
+        text-shadow: 
+            0 0 5px #00ffff,
+            0 0 10px #00ffff,
+            0 0 15px #00ffff,
+            0 0 20px #00ffff;
+    }
+    
+    .neon-purple {
+        text-shadow: 
+            0 0 5px #8a2be2,
+            0 0 10px #8a2be2,
+            0 0 15px #8a2be2,
+            0 0 20px #8a2be2;
+    }
+    
+    /* Retro grid animation */
+    .retro-grid {
+        background-image: 
+            linear-gradient(rgba(255,0,255,0.3) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,0,255,0.3) 1px, transparent 1px);
+        background-size: 50px 50px;
+        animation: grid-move 20s linear infinite;
+    }
+    
+    /* Scanline effect */
+    .scanlines::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+            transparent 0%,
+            rgba(255, 0, 255, 0.03) 50%,
+            transparent 100%
+        );
+        background-size: 100% 4px;
+        animation: scanlines 0.5s linear infinite;
+        pointer-events: none;
+    }
+    
+    /* Vinyl record spin animation */
+    .vinyl-spin:hover {
+        animation: spin 2s linear infinite;
+    }
+    
+    /* Pulse glow animation */
+    .pulse-glow {
+        animation: pulse-glow 2s ease-in-out infinite alternate;
+    }
+    
+    /* Retro button styles */
+    .retro-button {
+        position: relative;
+        background: linear-gradient(45deg, #ff00ff, #00ffff);
+        border: none;
+        color: white;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        transition: all 0.3s ease;
+    }
+    
+    .retro-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+    }
+    
+    .retro-button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, #00ffff, #ff00ff);
+        z-index: -1;
+        transition: opacity 0.3s ease;
+        opacity: 0;
+    }
+    
+    .retro-button:hover::before {
+        opacity: 1;
+    }
+}
+
+@layer utilities {
+    /* Custom animations */
+    @keyframes grid-move {
+        0% { transform: translate(0, 0); }
+        100% { transform: translate(50px, 50px); }
+    }
+    
+    @keyframes scanlines {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(4px); }
+    }
+    
+    @keyframes pulse-glow {
+        from { 
+            box-shadow: 0 0 10px rgba(255, 0, 255, 0.3);
+        }
+        to { 
+            box-shadow: 0 0 30px rgba(255, 0, 255, 0.8);
+        }
+    }
+    
+    @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+    
+    /* Gradient text utilities */
+    .gradient-text-neon {
+        background: linear-gradient(45deg, #ff00ff, #00ffff, #ff00ff);
+        background-size: 200% 200%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: gradient-shift 3s ease infinite;
+    }
+    
+    @keyframes gradient-shift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+    
+    /* Retro card hover effects */
+    .retro-card {
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 0, 255, 0.2);
+    }
+    
+    .retro-card:hover {
+        border-color: rgba(255, 0, 255, 0.5);
+        box-shadow: 
+            0 0 20px rgba(255, 0, 255, 0.3),
+            inset 0 0 20px rgba(255, 0, 255, 0.1);
+        transform: translateY(-5px);
+    }
+    
+    /* Chrome effect */
+    .chrome-text {
+        background: linear-gradient(
+            90deg,
+            #eee 0%,
+            #999 20%,
+            #eee 40%,
+            #999 60%,
+            #eee 80%,
+            #999 100%
+        );
+        background-size: 200% 100%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: chrome-shine 2s linear infinite;
+    }
+    
+    @keyframes chrome-shine {
+        0% { background-position: -200% 0; }
+        100% { background-position: 200% 0; }
+    }
+}
