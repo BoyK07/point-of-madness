@@ -25,5 +25,7 @@
 
             <x-layouts.footer />
         </div>
+
+        <x-modal.linktree.modal />
     </body>
 </html>

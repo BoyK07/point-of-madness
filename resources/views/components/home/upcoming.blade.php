@@ -118,14 +118,10 @@
                 <p class="text-gray-300 text-sm mb-6">
                     Follow our latest updates, tour announcements, and connect with us across all platforms.
                 </p>
-                <button class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full 
-                               font-semibold hover:from-blue-500 hover:to-purple-500 transition-all duration-300 
-                               transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/30 flex items-center gap-2 mx-auto">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
-                    </svg>
-                    All Links & Social
-                </button>
+
+                <div class="flex justify-center">
+                    <x-modal.linktree.button style="color"/>
+                </div>
             </div>
         </div>
     </div>
