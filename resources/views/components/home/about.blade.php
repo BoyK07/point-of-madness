@@ -4,7 +4,7 @@
     <div class="absolute inset-0 bg-gradient-to-r from-gray-900/30 to-gray-800/30"></div>
     <div class="absolute top-0 left-1/4 w-64 h-64 bg-blue-900/10 rounded-full filter blur-3xl"></div>
     <div class="absolute bottom-0 right-1/4 w-64 h-64 bg-purple-900/10 rounded-full filter blur-3xl"></div>
-    
+
     <div class="relative max-w-4xl mx-auto">
         <div class="text-center mb-16">
             <h2 class="text-4xl md:text-5xl font-bold mb-4">
@@ -14,35 +14,35 @@
             </h2>
             <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
         </div>
-        
+
         <div class="grid md:grid-cols-2 gap-12 items-center">
             <!-- Text Content -->
             <div class="space-y-6">
                 <div class="relative">
                     <div class="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-blue-500 to-purple-500 rounded-full"></div>
                     <p class="text-gray-300 text-lg leading-relaxed pl-1">
-                        Meet Point Of Madness, a four-piece band born from a shared love of 80s new wave. 
+                        Meet Point Of Madness, a four-piece band born from a shared love of 80s new wave.
                         Formed in 2023, their music is fueled by drum computers, catchy basslines, and fiery guitar riffs.
                     </p>
                 </div>
-                
+
                 <div class="relative">
                     <div class="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-purple-500 to-gray-500 rounded-full"></div>
                     <p class="text-gray-300 text-lg leading-relaxed pl-1">
-                        With Floris Anker on bass, Kay Spijker on guitar, Sem van Dongen on vocals, and Kai de Wild on drums, 
+                        With Floris Anker on bass, Kay Spijker on guitar, Sem van Dongen on vocals, and Kai de Wild on drums,
                         they're on a mission to revive the spirit of the past in today's tech-driven world.
                     </p>
                 </div>
-                
+
                 <div class="relative">
                     <div class="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-gray-500 to-blue-500 rounded-full"></div>
                     <p class="text-gray-300 text-lg leading-relaxed pl-1">
-                        Get ready to experience a blend of retro vibes and modern sounds that'll transport you 
+                        Get ready to experience a blend of retro vibes and modern sounds that'll transport you
                         back in time while keeping you rooted in the present.
                     </p>
                 </div>
             </div>
-            
+
             <!-- Stats & Highlights -->
             <div class="space-y-6">
                 <div class="bg-gradient-to-br from-gray-700/20 to-gray-600/20 backdrop-blur-sm border border-gray-500/20 rounded-xl p-6">
@@ -69,7 +69,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="bg-gradient-to-br from-blue-600/20 to-purple-600/20 backdrop-blur-sm border border-blue-500/20 rounded-xl p-6">
                     <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
                         <span class="w-2 h-2 bg-purple-400 rounded-full"></span>
@@ -82,8 +82,8 @@
                             </svg>
                         </div>
                         <div>
-                            <h4 class="text-white font-semibold">Secondary</h4>
-                            <p class="text-gray-400 text-sm">Latest Single • 2025</p>
+                            <h4 class="text-white font-semibold">{{ $latestRelease->name ?? 'Secondary'	 }}</h4>
+                            <p class="text-gray-400 text-sm">Latest Release • {{ $latestRelease->release_date->format('Y') ?? '2025' }}</p>
                         </div>
                     </div>
                 </div>

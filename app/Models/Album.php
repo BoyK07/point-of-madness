@@ -5,8 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Track extends Model
+class Album extends Model
 {
     use HasFactory;
 
@@ -17,11 +18,11 @@ class Track extends Model
      */
     protected $fillable = [
         'artist_id',
-        'album_id',
         'name',
         'spotify_id',
         'image',
-        'playcount',
+        'album_type',
+        'total_tracks',
         'release_date',
     ];
 
@@ -34,14 +35,13 @@ class Track extends Model
     {
         return [
             'artist_id' => 'integer',
-            'album_id' => 'integer',
-            'playcount' => 'integer',
+            'total_tracks' => 'integer',
             'release_date' => 'date',
         ];
     }
 
     /**
-     * Get the artist that owns the track.
+     * Get the artist that owns the album.
      */
     public function artist(): BelongsTo
     {
@@ -49,11 +49,11 @@ class Track extends Model
     }
 
     /**
-     * Get the album that owns the track.
+     * Get the tracks that belong to the album.
      */
-    public function album(): BelongsTo
+    public function tracks(): HasMany
     {
-        return $this->belongsTo(Album::class);
+        return $this->hasMany(Track::class);
     }
 }
 

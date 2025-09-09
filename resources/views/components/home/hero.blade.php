@@ -1,3 +1,5 @@
+@props(['latestRelease' => null])
+
 <!-- Hero Section - Image-Focused Design -->
 <div class="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden">
     <!-- Dark Professional Background -->
@@ -67,26 +69,28 @@
         </p>
     </div>
 
-    <!-- Latest Release Highlight - Expanded -->
-    <div class="relative z-10 mb-8">
-        <div
-            class="bg-gray-800/70 backdrop-blur-sm border border-gray-600/50
+    @if ($latestRelease && $latestRelease->release_date->diffInDays(now()) < 30)
+        <!-- Latest Release Highlight - Expanded -->
+        <div class="relative z-10 mb-8">
+            <div
+                class="bg-gray-800/70 backdrop-blur-sm border border-gray-600/50
                     rounded-2xl p-8 max-w-2xl mx-auto text-center shadow-2xl shadow-black/50">
-            <div class="flex items-center justify-center mb-4">
-                <span
-                    class="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-full text-base font-bold uppercase tracking-wider">
-                    Latest Release
-                </span>
-            </div>
-            <h3 class="text-4xl md:text-5xl font-black text-white mb-3 tracking-wide">Secondary</h3>
-            <p class="text-gray-300 text-lg mb-4">Our newest single - Available on all streaming platforms</p>
-            <div class="flex items-center justify-center gap-2 text-gray-400">
-                <div class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-                <span class="text-sm">Released 2025</span>
-                <div class="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></div>
+                <div class="flex items-center justify-center mb-4">
+                    <span
+                        class="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-full text-base font-bold uppercase tracking-wider">
+                        Latest Release
+                    </span>
+                </div>
+                <h3 class="text-4xl md:text-5xl font-black text-white mb-3 tracking-wide">{{ $latestRelease->name }}</h3>
+                <p class="text-gray-300 text-lg mb-4">Our newest release - Available on all streaming platforms</p>
+                <div class="flex items-center justify-center gap-2 text-gray-400">
+                    <div class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+                    <span class="text-sm">Released {{ $latestRelease->release_date->format('Y') }}</span>
+                    <div class="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></div>
+                </div>
             </div>
         </div>
-    </div>
+    @endif
 
     <!-- Professional Action Buttons -->
     <div class="relative z-10 flex flex-col sm:flex-row gap-4 items-center justify-center mb-8">

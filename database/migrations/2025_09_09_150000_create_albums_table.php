@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tracks', function (Blueprint $table) {
+        Schema::create('albums', function (Blueprint $table) {
             $table->id();
             $table->foreignId('artist_id')->constrained('artists');
             $table->string('name');
             $table->string('spotify_id')->unique();
             $table->string('image');
-            $table->bigInteger('playcount')->nullable();
+            $table->string('album_type'); // album, single, compilation
+            $table->unsignedInteger('total_tracks')->nullable();
             $table->date('release_date')->nullable();
             $table->timestamps();
         });
@@ -28,6 +29,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tracks');
+        Schema::dropIfExists('albums');
     }
 };
+
+

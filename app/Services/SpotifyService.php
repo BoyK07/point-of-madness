@@ -20,7 +20,7 @@ class SpotifyService
         $res = Http::asForm()
             ->timeout(config('spotify.timeout'))
             ->withHeaders([
-                'Authorization' => 'Basic '.base64_encode($id.':'.$secret),
+                'Authorization' => 'Basic ' . base64_encode($id . ':' . $secret),
             ])
             ->post(config('spotify.token_url'), [
                 'grant_type' => 'client_credentials',
@@ -42,7 +42,7 @@ class SpotifyService
 
     public function get(string $path, array $query = []): array
     {
-        $url = rtrim(config('spotify.api_base'), '/').'/'.ltrim($path, '/');
+        $url = rtrim(config('spotify.api_base'), '/') . '/' . ltrim($path, '/');
         $query = array_filter($query + ['market' => config('spotify.market')]);
 
         $token = $this->getAppToken();
@@ -78,10 +78,105 @@ class SpotifyService
         return $this->get("artists/{$artistId}");
     }
 
-    public function getArtistTopTracks(string $artistId, ?string $market = null): array
+    public function getArtistAlbums(string $artistId, ?string $market = null): array
     {
-        return $this->get("artists/{$artistId}/top-tracks", [
-            'market' => $market ?? config('spotify.market'),
-        ]);
+        $limit = 50;
+        $offset = 0;
+        $allAlbums = [];
+
+        while (true) {
+            $page = $this->get(
+                "artists/{$artistId}/albums",
+                [
+                    'market' => $market ?? config('spotify.market', 'US'),
+                    'limit' => $limit,
+                    'offset' => $offset,
+                ]
+            );
+
+            $items = $page['items'] ?? [];
+            if (!empty($items)) {
+                $allAlbums = array_merge($allAlbums, $items);
+            }
+
+            if (empty($page['next'])) {
+                break;
+            }
+
+            $offset += $limit;
+        }
+
+        return $allAlbums;
+    }
+
+
+    public function getArtistTracks(string $artistId, ?string $market = null): array
+    {
+        $limit = 50;
+        $offset = 0;
+        $allAlbums = [];
+        $allTracks = [];
+
+        while (true) {
+            $page = $this->get(
+                "artists/{$artistId}/albums",
+                [
+                    'market' => $market ?? config('spotify.market', 'US'),
+                    'limit' => $limit,
+                    'offset' => $offset,
+                ]
+            );
+
+            $items = $page['items'] ?? [];
+            if (!empty($items)) {
+                $allAlbums = array_merge($allAlbums, $items);
+            }
+
+            if (empty($page['next'])) {
+                break;
+            }
+
+            $offset += $limit;
+        }
+
+        foreach ($allAlbums as $album) {
+            $albumTracks = [];
+            $tLimit = 50;
+            $tOffset = 0;
+
+            while (true) {
+                $tracksPage = $this->get("albums/{$album['id']}/tracks", [
+                    'market' => $market ?? config('spotify.market', 'US'),
+                    'limit' => $tLimit,
+                    'offset' => $tOffset,
+                ]);
+
+                $items = $tracksPage['items'] ?? [];
+                if (!empty($items)) {
+                    $albumTracks = array_merge($albumTracks, $items);
+                }
+
+                if (empty($tracksPage['next'])) {
+                    break;
+                }
+
+                $tOffset += $tLimit;
+            }
+
+            if (!empty($albumTracks)) {
+                $allTracks = array_merge($allTracks, $albumTracks);
+            }
+        }
+
+        $trackChunks = array_chunk($allTracks, 50);
+        $allTracks = [];
+        foreach ($trackChunks as $trackChunk) {
+            $tracks = $this->get("tracks", [
+                'ids' => implode(',', array_column($trackChunk, 'id')),
+            ]);
+            $allTracks = array_merge($allTracks, $tracks['tracks']);
+        }
+
+        return $allTracks;
     }
 }
