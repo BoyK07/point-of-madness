@@ -2,17 +2,16 @@
 
 namespace App\Console\Commands;
 
-use App\Models\Artist;
 use App\Models\Album;
-use App\Models\Track;
+use App\Models\Artist;
 use App\Services\SpotifyService;
 use DateTime;
 use Illuminate\Console\Command;
 
-class SpotifySync extends Command
+class SpotifySyncArtist extends Command
 {
-    protected $signature = 'spotify:sync {--limit=0 : Limit number of artists processed this run}';
-    protected $description = 'Fetch artists + top tracks using client-credentials with cached token (10m buffer)';
+    protected $signature = 'spotify:sync-artist {--limit=0 : Limit number of artists processed this run}';
+    protected $description = 'Fetch artist and albums using client-credentials with cached token (10m buffer)';
 
     public function handle(SpotifyService $spotify): int
     {
@@ -36,11 +35,10 @@ class SpotifySync extends Command
             'image' => $artist['images'][0]['url'],
         ]);
 
-        // Sync albums first
+        // Sync albums
         $albums = $spotify->getArtistAlbums($artistDB->spotify_id);
-        $albumIdBySpotifyId = [];
         foreach ($albums as $album) {
-            $albumModel = Album::updateOrCreate(
+            Album::updateOrCreate(
                 ['spotify_id' => $album['id']],
                 [
                     'artist_id'    => $artistDB->id,
@@ -51,28 +49,10 @@ class SpotifySync extends Command
                     'release_date' => isset($album['release_date']) ? (new DateTime($album['release_date']))->format('Y-m-d') : null,
                 ]
             );
-
-            $albumIdBySpotifyId[$album['id']] = $albumModel->id;
-        }
-
-        // Sync tracks and associate with albums
-        $tracks = $spotify->getArtistTracks($artistDB->spotify_id);
-        foreach ($tracks as $track) {
-            $albumSpotifyId = $track['album']['id'] ?? null;
-            $albumId = $albumSpotifyId && isset($albumIdBySpotifyId[$albumSpotifyId]) ? $albumIdBySpotifyId[$albumSpotifyId] : null;
-
-            Track::updateOrCreate(
-                ['spotify_id' => $track['id']],
-                [
-                    'artist_id'    => $artistDB->id,
-                    'album_id'     => $albumId,
-                    'name'         => $track['name'],
-                    'image'        => $track['album']['images'][0]['url'] ?? '',
-                    'release_date' => isset($track['album']['release_date']) ? (new DateTime($track['album']['release_date']))->format('Y-m-d') : null,
-                ]
-            );
         }
 
         return self::SUCCESS;
     }
 }
+
+
