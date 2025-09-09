@@ -34,7 +34,6 @@ class SpotifySync extends Command
         $artistDB->update([
             'name' => $artist['name'],
             'image' => $artist['images'][0]['url'],
-            'monthly_listeners' => $artist['monthly_listeners'] ?? 0, //TODO: Implement later
         ]);
 
         // Sync albums first
@@ -69,7 +68,6 @@ class SpotifySync extends Command
                     'album_id'     => $albumId,
                     'name'         => $track['name'],
                     'image'        => $track['album']['images'][0]['url'] ?? '',
-                    'playcount'    => $track['playcount'] ?? 0, //TODO: Implement later
                     'release_date' => isset($track['album']['release_date']) ? (new DateTime($track['album']['release_date']))->format('Y-m-d') : null,
                 ]
             );
