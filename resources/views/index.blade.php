@@ -6,7 +6,7 @@
     <div class="max-w-full">
         <x-home.about :$latestRelease />
 
-        <x-home.music :$latestRelease :popular-tracks="$popularTracks" />
+        <x-home.music :$latestRelease :popular-tracks="$popularTracks" :$artist/>
 
         <x-home.members />
 

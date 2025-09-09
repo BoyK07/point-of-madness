@@ -1,4 +1,5 @@
-@props(['latestRelease' => null, 'popularTracks' => collect()])
+@props(['latestRelease' => null, 'popularTracks' => collect(), 'artist' => null])
+
 <!-- Professional Music & Releases Section -->
 <div class="relative py-24 px-6">
     <!-- Professional Background -->
@@ -125,7 +126,7 @@
                     </svg>
                 </div>
                 <div class="text-left">
-                    <div class="text-white font-semibold">864 monthly listeners</div>
+                    <div class="text-white font-semibold">{{ $artist?->spotify_monthly_listeners ?? 'N/A' }} monthly listeners</div>
                     <div class="text-gray-400 text-sm">Follow us on Spotify for new releases</div>
                 </div>
                 <a href="https://open.spotify.com/artist/1YhRX1mRz6rzQofSyzlszi" target="_blank"

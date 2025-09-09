@@ -82,8 +82,8 @@
                             </svg>
                         </div>
                         <div>
-                            <h4 class="text-white font-semibold">{{ $latestRelease->name ?? 'Secondary'	 }}</h4>
-                            <p class="text-gray-400 text-sm">Latest Release • {{ $latestRelease->release_date->format('Y') ?? '2025' }}</p>
+                            <h4 class="text-white font-semibold">{{ $latestRelease?->name ?? 'N/A'	 }}</h4>
+                            <p class="text-gray-400 text-sm">Latest Release • {{ $latestRelease?->release_date->format('Y') ?? 'N/A' }}</p>
                         </div>
                     </div>
                 </div>
