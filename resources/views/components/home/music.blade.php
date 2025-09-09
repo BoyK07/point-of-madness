@@ -99,7 +99,7 @@
                             <h4 class="text-white font-bold text-2xl mb-3">{{ $track->name }}</h4>
                             <div class="space-y-1">
                                 <div class="text-{{ $accent }}-400 font-semibold">
-                                    {{ number_format($track->playcount ?? 0) }} plays
+                                    {{ number_format($track->playcount ?? 'N/A') }} plays
                                 </div>
                                 <div class="text-gray-400 text-sm">{{ $track->release_date?->format('Y') ?? '—' }}</div>
                             </div>
