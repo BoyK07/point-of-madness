@@ -99,7 +99,7 @@
                             <h4 class="text-white font-bold text-2xl mb-3">{{ $track->name }}</h4>
                             <div class="space-y-1">
                                 <div class="text-{{ $accent }}-400 font-semibold">
-                                    {{ number_format($track->playcount ?? 'N/A') }} plays
+                                    {{ is_numeric($track->playcount) ? number_format((float) $track->playcount) : 'N/A' }} plays
                                 </div>
                                 <div class="text-gray-400 text-sm">{{ $track->release_date?->format('Y') ?? '—' }}</div>
                             </div>
@@ -126,7 +126,7 @@
                     </svg>
                 </div>
                 <div class="text-left">
-                    <div class="text-white font-semibold">{{ $artist?->spotify_monthly_listeners ?? 'N/A' }} monthly listeners</div>
+                    <div class="text-white font-semibold">{{ is_numeric($artist?->spotify_monthly_listeners ?? $artist?->monthly_listeners) ? number_format((float) ($artist?->spotify_monthly_listeners ?? $artist?->monthly_listeners)) : 'N/A' }} monthly listeners</div>
                     <div class="text-gray-400 text-sm">Follow us on Spotify for new releases</div>
                 </div>
                 <a href="https://open.spotify.com/artist/1YhRX1mRz6rzQofSyzlszi" target="_blank"

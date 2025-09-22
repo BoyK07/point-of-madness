@@ -69,7 +69,7 @@
         </p>
     </div>
 
-    @if ($latestRelease && $latestRelease->release_date->diffInDays(now()) < 30)
+    @if ($latestRelease && $latestRelease->release_date && $latestRelease->release_date->diffInDays(now()) < 30)
         <!-- Latest Release Highlight - Expanded -->
         <div class="relative z-10 mb-8">
             <div
@@ -85,7 +85,7 @@
                 <p class="text-gray-300 text-lg mb-4">Our newest release - Available on all streaming platforms</p>
                 <div class="flex items-center justify-center gap-2 text-gray-400">
                     <div class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-                    <span class="text-sm">Released {{ $latestRelease->release_date->format('Y') }}</span>
+                    <span class="text-sm">Released {{ $latestRelease->release_date?->format('Y') ?? '—' }}</span>
                     <div class="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></div>
                 </div>
             </div>

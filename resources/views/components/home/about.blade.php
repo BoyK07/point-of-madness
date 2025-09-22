@@ -83,7 +83,7 @@
                         </div>
                         <div>
                             <h4 class="text-white font-semibold">{{ $latestRelease?->name ?? 'N/A'	 }}</h4>
-                            <p class="text-gray-400 text-sm">Latest Release • {{ $latestRelease?->release_date->format('Y') ?? 'N/A' }}</p>
+                            <p class="text-gray-400 text-sm">Latest Release • {{ $latestRelease?->release_date?->format('Y') ?? 'N/A' }}</p>
                         </div>
                     </div>
                 </div>
