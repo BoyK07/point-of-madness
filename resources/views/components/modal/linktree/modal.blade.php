@@ -26,7 +26,7 @@
                     Social Media
                 </h3>
                 <div class="grid gap-3">
-                    <a href="https://instagram.com/pointofmadnessband" target="_blank" 
+                    <a href="{{ \App\Models\Linktree::url('instagram', '#') }}" target="_blank" 
                        class="flex items-center gap-4 p-4 bg-gradient-to-r from-pink-600 to-purple-600 
                               rounded-xl hover:from-pink-500 hover:to-purple-500 transition-all duration-300 
                               transform hover:scale-[1.02] hover:shadow-lg">
@@ -39,7 +39,7 @@
                         </div>
                     </a>
 
-                    <a href="https://www.tiktok.com/@point.of.madness" target="_blank" 
+                    <a href="{{ \App\Models\Linktree::url('tiktok', '#') }}" target="_blank" 
                        class="flex items-center gap-4 p-4 bg-gradient-to-r from-black to-gray-800 
                               rounded-xl hover:from-gray-800 hover:to-gray-700 transition-all duration-300 
                               transform hover:scale-[1.02] hover:shadow-lg">
@@ -63,7 +63,7 @@
                     Music Streaming
                 </h3>
                 <div class="grid gap-3">
-                    <a href="https://open.spotify.com/artist/1YhRX1mRz6rzQofSyzlszi" target="_blank" 
+                    <a href="{{ \App\Models\Linktree::url('spotify', '#') }}" target="_blank" 
                        class="flex items-center gap-4 p-4 bg-gradient-to-r from-green-600 to-green-500 
                               rounded-xl hover:from-green-500 hover:to-green-400 transition-all duration-300 
                               transform hover:scale-[1.02] hover:shadow-lg">
@@ -76,7 +76,7 @@
                         </div>
                     </a>
 
-                    <a href="https://music.amazon.com/artists/B0CZV1WG82/point-of-madness" target="_blank" 
+                    <a href="{{ \App\Models\Linktree::url('amazon_music', '#') }}" target="_blank" 
                        class="flex items-center gap-4 p-4 bg-gradient-to-r from-orange-600 to-yellow-500 
                               rounded-xl hover:from-orange-500 hover:to-yellow-400 transition-all duration-300 
                               transform hover:scale-[1.02] hover:shadow-lg">
@@ -89,7 +89,7 @@
                         </div>
                     </a>
 
-                    <a href="https://www.deezer.com/us/artist/260843331" target="_blank" 
+                    <a href="{{ \App\Models\Linktree::url('deezer', '#') }}" target="_blank" 
                        class="flex items-center gap-4 p-4 bg-gradient-to-r from-purple-600 to-pink-500 
                               rounded-xl hover:from-purple-500 hover:to-pink-400 transition-all duration-300 
                               transform hover:scale-[1.02] hover:shadow-lg">
@@ -102,7 +102,7 @@
                         </div>
                     </a>
 
-                    <a href="https://tidal.com/artist/46872152" target="_blank" 
+                    <a href="{{ \App\Models\Linktree::url('tidal', '#') }}" target="_blank" 
                        class="flex items-center gap-4 p-4 bg-gradient-to-r from-blue-900 to-cyan-700 
                               rounded-xl hover:from-blue-800 hover:to-cyan-600 transition-all duration-300 
                               transform hover:scale-[1.02] hover:shadow-lg">
@@ -115,7 +115,7 @@
                         </div>
                     </a>
 
-                    <a href="https://open.qobuz.com/artist/22007984" target="_blank" 
+                    <a href="{{ \App\Models\Linktree::url('qobuz', '#') }}" target="_blank" 
                        class="flex items-center gap-4 p-4 bg-gradient-to-r from-indigo-700 to-purple-700 
                               rounded-xl hover:from-indigo-600 hover:to-purple-600 transition-all duration-300 
                               transform hover:scale-[1.02] hover:shadow-lg">
@@ -128,7 +128,7 @@
                         </div>
                     </a>
 
-                    <a href="https://www.youtube.com/@PointofMadness" target="_blank" 
+                    <a href="{{ \App\Models\Linktree::url('youtube', '#') }}" target="_blank" 
                        class="flex items-center gap-4 p-4 bg-gradient-to-r from-red-600 to-red-500 
                               rounded-xl hover:from-red-500 hover:to-red-400 transition-all duration-300 
                               transform hover:scale-[1.02] hover:shadow-lg">
@@ -141,7 +141,7 @@
                         </div>
                     </a>
 
-                    <a href="https://music.youtube.com/channel/UC3byFEMycsebbNGxeFhx6CQ" target="_blank" 
+                    <a href="{{ \App\Models\Linktree::url('youtube_music', '#') }}" target="_blank" 
                        class="flex items-center gap-4 p-4 bg-gradient-to-r from-red-800 to-orange-600 
                               rounded-xl hover:from-red-700 hover:to-orange-500 transition-all duration-300 
                               transform hover:scale-[1.02] hover:shadow-lg">
@@ -166,7 +166,7 @@
                 </h3>
                 <div class="grid gap-3">
 
-                    <a href="https://www.youtube.com/watch?v=HGcrZPMlOrw" target="_blank" 
+                    <a href="{{ \App\Models\Linktree::url('toxic_music_video', '#') }}" target="_blank" 
                        class="flex items-center gap-4 p-4 bg-gradient-to-r from-gray-700 to-gray-600 
                               rounded-xl hover:from-gray-600 hover:to-gray-500 transition-all duration-300 
                               transform hover:scale-[1.02] hover:shadow-lg border-2 border-red-500/30">

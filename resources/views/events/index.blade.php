@@ -137,7 +137,7 @@
                         
                         <!-- Social Links -->
                         <div class="flex justify-center gap-4">
-                            <a href="https://www.instagram.com/pointofmadnessband/" target="_blank"
+                            <a href="{{ \App\Models\Linktree::url('instagram', '#') }}" target="_blank"
                                class="bg-gradient-to-r from-pink-600 to-purple-600 text-white px-6 py-3 rounded-full 
                                       font-semibold hover:from-pink-500 hover:to-purple-500 transition-all duration-300 
                                       transform hover:scale-105 hover:shadow-lg hover:shadow-pink-500/30 flex items-center gap-2">
@@ -147,7 +147,7 @@
                                 Follow on Instagram
                             </a>
                             
-                            <a href="https://www.tiktok.com/@point.of.madness" target="_blank"
+                            <a href="{{ \App\Models\Linktree::url('tiktok', '#') }}" target="_blank"
                                class="bg-gradient-to-r from-gray-600 to-gray-700 text-white px-6 py-3 rounded-full 
                                       font-semibold hover:from-gray-500 hover:to-gray-600 transition-all duration-300 
                                       transform hover:scale-105 hover:shadow-lg hover:shadow-gray-500/30 flex items-center gap-2">

@@ -15,5 +15,7 @@ class DatabaseSeeder extends Seeder
         Artist::create([
             'spotify_id' => '1YhRX1mRz6rzQofSyzlszi',
         ]);
+
+        $this->call(LinktreeSeeder::class);
     }
 }

@@ -1,4 +1,7 @@
 @use('Carbon\Carbon')
+@php
+    $spotifyLink = \App\Models\Linktree::url('spotify', '#');
+@endphp
 
 <!-- Professional Footer -->
 <footer class="relative mt-24 py-16 px-6">
@@ -29,14 +32,14 @@
                 <div>
                     <h4 class="text-white font-semibold mb-4 text-lg">Listen</h4>
                     <div class="space-y-2">
-                        <a href="https://open.spotify.com/artist/1YhRX1mRz6rzQofSyzlszi" target="_blank"
+                        <a href="{{ $spotifyLink }}" target="_blank"
                            class="block text-gray-400 hover:text-green-400 transition-colors duration-300">
                             Spotify
                         </a>
-                        <a href="#" class="block text-gray-400 hover:text-red-400 transition-colors duration-300">
+                        <a href="{{ \App\Models\Linktree::url('youtube', $spotifyLink) }}" target="_blank" class="block text-gray-400 hover:text-red-400 transition-colors duration-300">
                             YouTube
                         </a>
-                        <a href="#" class="block text-gray-400 hover:text-orange-400 transition-colors duration-300">
+                        <a href="{{ \App\Models\Linktree::url('apple_music', $spotifyLink) }}" target="_blank" class="block text-gray-400 hover:text-orange-400 transition-colors duration-300">
                             Apple Music
                         </a>
                     </div>
@@ -46,18 +49,18 @@
                 <div>
                     <h4 class="text-white font-semibold mb-4 text-lg">Connect</h4>
                     <div class="space-y-2">
-                        <a href="https://www.instagram.com/pointofmadnessband/" target="_blank"
+                        <a href="{{ \App\Models\Linktree::url('instagram', $spotifyLink) }}" target="_blank"
                            class="block text-gray-400 hover:text-pink-400 transition-colors duration-300">
                             Instagram
                         </a>
-                        <a href="https://www.tiktok.com/@point.of.madness" target="_blank"
+                        <a href="{{ \App\Models\Linktree::url('tiktok', $spotifyLink) }}" target="_blank"
                            class="block text-gray-400 hover:text-pink-400 transition-colors duration-300">
                             TikTok
                         </a>
-                        <a href="#" class="block text-gray-400 hover:text-blue-400 transition-colors duration-300">
+                        <a href="{{ \App\Models\Linktree::url('facebook', $spotifyLink) }}" target="_blank" class="block text-gray-400 hover:text-blue-400 transition-colors duration-300">
                             Facebook
                         </a>
-                        <a href="#" class="block text-gray-400 hover:text-cyan-400 transition-colors duration-300">
+                        <a href="{{ \App\Models\Linktree::url('twitter', $spotifyLink) }}" target="_blank" class="block text-gray-400 hover:text-cyan-400 transition-colors duration-300">
                             Twitter
                         </a>
                     </div>
@@ -82,7 +85,7 @@
             
             <!-- Social Icons -->
             <div class="flex justify-center space-x-6 mb-8">
-                <a href="https://open.spotify.com/artist/1YhRX1mRz6rzQofSyzlszi" target="_blank"
+                <a href="{{ $spotifyLink }}" target="_blank"
                    class="group w-12 h-12 bg-gradient-to-br from-green-500/20 to-green-600/20 
                           border border-green-500/30 rounded-full flex items-center justify-center 
                           hover:border-green-500 hover:bg-green-500/10 transition-all duration-300 
@@ -92,7 +95,7 @@
                     </svg>
                 </a>
                 
-                <a href="https://www.instagram.com/pointofmadnessband/" target="_blank"
+                <a href="{{ \App\Models\Linktree::url('instagram', $spotifyLink) }}" target="_blank"
                    class="group w-12 h-12 bg-gradient-to-br from-pink-500/20 to-purple-600/20 
                           border border-pink-500/30 rounded-full flex items-center justify-center 
                           hover:border-pink-500 hover:bg-pink-500/10 transition-all duration-300 
@@ -102,7 +105,7 @@
                     </svg>
                 </a>
                 
-                <a href="https://www.tiktok.com/@point.of.madness" target="_blank"
+                <a href="{{ \App\Models\Linktree::url('tiktok', $spotifyLink) }}" target="_blank"
                    class="group w-12 h-12 bg-gradient-to-br from-gray-500/20 to-gray-600/20 
                           border border-gray-500/30 rounded-full flex items-center justify-center 
                           hover:border-gray-500 hover:bg-gray-500/10 transition-all duration-300 
@@ -112,7 +115,7 @@
                     </svg>
                 </a>
                 
-                <a href="#" class="group w-12 h-12 bg-gradient-to-br from-blue-500/20 to-blue-600/20 
+                <a href="{{ \App\Models\Linktree::url('twitter', $spotifyLink) }}" target="_blank" class="group w-12 h-12 bg-gradient-to-br from-blue-500/20 to-blue-600/20 
                           border border-blue-500/30 rounded-full flex items-center justify-center 
                           hover:border-blue-500 hover:bg-blue-500/10 transition-all duration-300 
                           transform hover:scale-110">
@@ -121,7 +124,7 @@
                     </svg>
                 </a>
                 
-                <a href="#" class="group w-12 h-12 bg-gradient-to-br from-red-500/20 to-red-600/20 
+                <a href="{{ \App\Models\Linktree::url('youtube', $spotifyLink) }}" target="_blank" class="group w-12 h-12 bg-gradient-to-br from-red-500/20 to-red-600/20 
                           border border-red-500/30 rounded-full flex items-center justify-center 
                           hover:border-red-500 hover:bg-red-500/10 transition-all duration-300 
                           transform hover:scale-110">

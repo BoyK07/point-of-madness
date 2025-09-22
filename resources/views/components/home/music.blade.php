@@ -129,7 +129,7 @@
                     <div class="text-white font-semibold">{{ is_numeric($artist?->spotify_monthly_listeners ?? $artist?->monthly_listeners) ? number_format((float) ($artist?->spotify_monthly_listeners ?? $artist?->monthly_listeners)) : 'N/A' }} monthly listeners</div>
                     <div class="text-gray-400 text-sm">Follow us on Spotify for new releases</div>
                 </div>
-                <a href="https://open.spotify.com/artist/1YhRX1mRz6rzQofSyzlszi" target="_blank"
+                <a href="{{ \App\Models\Linktree::url('spotify', '#') }}" target="_blank"
                    class="bg-green-500 hover:bg-green-400 text-white px-4 py-2 rounded-full text-sm font-semibold
                           transition-all duration-300 transform hover:scale-105">
                     Follow

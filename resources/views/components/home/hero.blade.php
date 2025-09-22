@@ -94,8 +94,8 @@
 
     <!-- Professional Action Buttons -->
     <div class="relative z-10 flex flex-col sm:flex-row gap-4 items-center justify-center mb-8">
-        <button
-            class="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600
+        <a href="{{ \App\Models\Linktree::url('spotify', '#') }}" target="_blank"
+           class="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600
                       text-white font-semibold rounded-full hover:from-blue-500 hover:to-purple-500
                       transition-all duration-300 transform hover:scale-105 hover:shadow-xl
                       hover:shadow-blue-500/30 flex items-center gap-3">
@@ -103,7 +103,7 @@
                 <path d="M8 5v14l11-7z" />
             </svg>
             Listen Now
-        </button>
+        </a>
 
         <x-modal.linktree.button />
     </div>
