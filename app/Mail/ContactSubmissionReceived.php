@@ -23,6 +23,7 @@ class ContactSubmissionReceived extends Mailable
         protected ?string $attachmentPath = null,
         protected ?string $attachmentName = null,
         protected ?string $attachmentMime = null,
+        protected ?string $attachmentData = null,
     ) {
     }
 
@@ -61,6 +62,16 @@ class ContactSubmissionReceived extends Mailable
      */
     public function attachments(): array
     {
+        // Prefer in-memory data when available (safe for queued mails)
+        if ($this->attachmentData !== null) {
+            $mime = $this->attachmentMime ?: 'application/octet-stream';
+
+            return [
+                Attachment::fromData(fn () => $this->attachmentData, $this->attachmentName ?? 'attachment')
+                    ->withMime($mime),
+            ];
+        }
+
         if ($this->attachmentPath === null || !is_file($this->attachmentPath)) {
             return [];
         }

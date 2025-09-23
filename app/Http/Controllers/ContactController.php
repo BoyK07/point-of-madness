@@ -31,7 +31,7 @@ class ContactController extends Controller
      */
     public function store(ContactSubmissionRequest $request): JsonResponse
     {
-        if (RateLimiter::tooManyAttempts($request->generalThrottleKey(), 5)) {
+        if (app()->isProduction() && RateLimiter::tooManyAttempts($request->generalThrottleKey(), 5)) {
             $seconds = max(
                 1,
                 $request->failureCooldownSeconds(),
@@ -49,14 +49,21 @@ class ContactController extends Controller
 
         $data = $request->validated();
 
+        /** @var \Illuminate\Http\Request $baseRequest */
+        $baseRequest = $request;
+
         $attachmentPath = null;
         $attachmentMime = null;
         $attachmentOriginalName = null;
+        $attachmentData = null;
 
-        if ($request->hasFile('attachment')) {
-            $uploaded = $request->file('attachment');
+        if ($baseRequest->hasFile('attachment')) {
+            $uploaded = $baseRequest->file('attachment');
             $attachmentMime = $uploaded->getMimeType();
             $attachmentOriginalName = $this->sanitizeFilename($uploaded->getClientOriginalName());
+            // Read file contents into memory so the mailable can attach it even if queued
+            $attachmentData = file_get_contents($uploaded->getRealPath());
+            // Also store temporarily for fallback (non-queued immediate send)
             $storedFilename = $this->generateStoredFilename($uploaded->getClientOriginalExtension());
             $attachmentPath = $uploaded->storeAs('contact-submissions', $storedFilename, 'local');
         }
@@ -71,9 +78,9 @@ class ContactController extends Controller
             'phone' => $data['phone'] ?? null,
             'attachment_original_name' => $attachmentOriginalName,
             'meta' => [
-                'ip_hash' => hash_hmac('sha256', (string) $request->ip(), config('app.key')), 
-                'user_agent_hash' => hash_hmac('sha256', (string) $request->userAgent(), config('app.key')),
-                'referrer' => $request->headers->get('referer'),
+                'ip_hash' => hash_hmac('sha256', (string) $baseRequest->ip(), config('app.key')),
+                'user_agent_hash' => hash_hmac('sha256', (string) $baseRequest->userAgent(), config('app.key')),
+                'referrer' => $baseRequest->headers->get('referer'),
             ],
         ]);
 
@@ -85,7 +92,8 @@ class ContactController extends Controller
                 $submission,
                 $attachmentDiskPath,
                 $attachmentOriginalName,
-                $attachmentMime
+                $attachmentMime,
+                $attachmentData,
             ));
 
             Mail::to($submission->email)->send(new ContactSubmissionAutoReply($submission));

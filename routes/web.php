@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])
     ->name('index');
 
-// Placeholder routes for navigation items
 Route::get('/events', function () {
     return view('events.index');
 })->name('events.index');
@@ -19,11 +18,6 @@ Route::get('/contact', [ContactController::class, 'index'])
 
 Route::post('/contact', [ContactController::class, 'store'])
     ->name('contact.submit');
-
-// Future blogs route (currently unused)
-Route::get('/blogs', function () {
-    return view('blogs.index');
-})->name('blogs.index');
 
 // Profile routes (still require auth)
 Route::middleware('auth')->group(function () {
