@@ -35,4 +35,12 @@ return [
         ],
     ],
 
+    'captcha' => [
+        'provider' => env('CAPTCHA_PROVIDER', 'recaptcha'),
+        'site_key' => env('CAPTCHA_SITE_KEY'),
+        'secret' => env('CAPTCHA_SECRET_KEY'),
+        'endpoint' => env('CAPTCHA_VERIFY_ENDPOINT', 'https://www.google.com/recaptcha/api/siteverify'),
+        'minimum_score' => (float) env('CAPTCHA_MINIMUM_SCORE', 0.5),
+    ],
+
 ];
