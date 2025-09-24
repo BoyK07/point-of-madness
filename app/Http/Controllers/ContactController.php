@@ -31,7 +31,7 @@ class ContactController extends Controller
      */
     public function store(ContactSubmissionRequest $request): JsonResponse
     {
-        if (app()->isProduction() && RateLimiter::tooManyAttempts($request->generalThrottleKey(), 5)) {
+        if (RateLimiter::tooManyAttempts($request->generalThrottleKey(), 5)) {
             $seconds = max(
                 1,
                 $request->failureCooldownSeconds(),

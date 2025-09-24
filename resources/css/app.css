@@ -6,6 +6,11 @@
 @layer base {
     body {
         font-family: 'Figtree', sans-serif;
-        background: #1f0f12;
+        background: #f8fafc;
+        color: #0f172a;
+    }
+
+    [x-cloak] {
+        display: none !important;
     }
 }

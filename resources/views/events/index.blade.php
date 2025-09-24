@@ -1,165 +1,48 @@
 <x-app-layout>
-    <!-- Professional Events Page -->
-    <div class="relative min-h-screen">
-        <!-- Background matching homepage -->
-        <div class="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-800 to-black">
-            <div class="absolute inset-0 opacity-5">
-                <div class="absolute inset-0" style="background-image: 
-                    linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
-                    background-size: 30px 30px;">
-                </div>
-            </div>
+    <section class="bg-slate-900 py-16 text-white">
+        <div class="mx-auto max-w-5xl px-4">
+            <h1 class="text-4xl font-bold">@phrase('events.title', 'Upcoming events')</h1>
+            <p class="mt-2 max-w-2xl text-slate-300">@phrase('events.subtitle', 'Catch the next Point of Madness performance near you.')</p>
         </div>
-        
-        <!-- Ambient effects -->
-        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-900/10 rounded-full filter blur-3xl"></div>
-        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-900/10 rounded-full filter blur-3xl"></div>
-        
-        <!-- Content -->
-        <div class="relative z-10 py-24 px-6">
-            <div class="max-w-6xl mx-auto">
-                <!-- Page Header -->
-                <div class="text-center mb-16">
-                    <h1 class="text-5xl md:text-6xl font-black mb-4 tracking-wide">
-                        <span class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                            Upcoming Events
-                        </span>
-                    </h1>
-                    <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
-                    <p class="text-gray-400 mt-6 text-xl">Catch Point of Madness live this September</p>
-                </div>
+    </section>
 
-                <!-- Events Grid -->
-                @php
-                    $shows = [
-                        [
-                            'date' => 'Sep 6',
-                            'day' => 'Saturday',
-                            'venue' => 'Breda Barst',
-                            'location' => 'Breda',
-                            'time' => 'Evening',
-                            'type' => 'Festival',
-                            'accent' => 'blue',
-                            'description' => 'Join us at this amazing festival for an unforgettable night of new wave music.'
-                        ],
-                        [
-                            'date' => 'Sep 14',
-                            'day' => 'Sunday',
-                            'venue' => 'Kempenerpop',
-                            'location' => 'Waalre',
-                            'time' => 'Afternoon',
-                            'type' => 'Festival',
-                            'accent' => 'purple',
-                            'description' => 'A perfect Sunday afternoon featuring our latest tracks and fan favorites.'
-                        ],
-                        [
-                            'date' => 'Sep 26',
-                            'day' => 'Friday',
-                            'venue' => 'Sound Dog',
-                            'location' => 'Breda',
-                            'time' => 'Night',
-                            'type' => 'Club Show',
-                            'accent' => 'gray',
-                            'description' => 'An intimate club performance showcasing our new single "Secondary".'
-                        ]
-                    ];
-                @endphp
-
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-                    @foreach($shows as $show)
-                        <div class="group relative">
-                            <!-- Professional Event Card -->
-                            <div class="relative bg-gradient-to-br from-gray-800/50 to-black/50 backdrop-blur-sm 
-                                        border border-{{ $show['accent'] }}-500/20 rounded-2xl overflow-hidden 
-                                        transform transition-all duration-300 hover:scale-105 hover:border-{{ $show['accent'] }}-500/40
-                                        hover:shadow-xl hover:shadow-{{ $show['accent'] }}-500/20">
-                                
-                                <!-- Event Header -->
-                                <div class="bg-gradient-to-r from-{{ $show['accent'] }}-600 to-{{ $show['accent'] }}-700 p-6 text-center">
-                                    <div class="text-white">
-                                        <div class="text-sm font-semibold uppercase tracking-wider opacity-90">{{ $show['type'] }}</div>
-                                        <div class="text-3xl font-black mt-1">{{ $show['date'] }}</div>
-                                        <div class="text-sm opacity-90">{{ $show['day'] }}</div>
-                                    </div>
-                                </div>
-                                
-                                <!-- Event Details -->
-                                <div class="p-6 space-y-4">
-                                    <div class="text-center">
-                                        <h3 class="text-xl font-bold text-white mb-1">{{ $show['venue'] }}</h3>
-                                        <p class="text-gray-400 text-sm">{{ $show['location'] }}</p>
-                                    </div>
-                                    
-                                    <div class="flex justify-between items-center text-sm">
-                                        <div class="text-gray-400">
-                                            <div class="flex items-center gap-2">
-                                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                                                </svg>
-                                                <span>{{ $show['time'] }}</span>
-                                            </div>
-                                        </div>
-                                        <div class="text-{{ $show['accent'] }}-400 font-semibold">
-                                            Live Show
-                                        </div>
-                                    </div>
-                                    
-                                    <p class="text-gray-300 text-sm leading-relaxed">
-                                        {{ $show['description'] }}
-                                    </p>
-                                    
-                                    <!-- Point of Madness branding -->
-                                    <div class="pt-4 border-t border-gray-700">
-                                        <div class="text-center text-xs text-gray-500 uppercase tracking-wider">
-                                            Point of Madness
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- Hover Effect -->
-                                <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                                    <div class="absolute inset-0 bg-gradient-to-br from-{{ $show['accent'] }}-500/5 to-transparent"></div>
-                                </div>
-                            </div>
+    <section class="mx-auto max-w-5xl px-4 py-12">
+        <div class="space-y-6">
+            @forelse(ssot_events_upcoming() as $event)
+                <article class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+                    <div class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+                        <div>
+                            <h2 class="text-2xl font-semibold text-slate-900">{{ $event->title }}</h2>
+                            <p class="mt-1 text-sm text-slate-500">
+                                {{ $event->starts_at?->timezone(config('app.timezone'))->format('d M Y · H:i') }}
+                                @if($event->ends_at)
+                                    <span class="text-slate-400">→ {{ $event->ends_at->timezone(config('app.timezone'))->format('d M Y · H:i') }}</span>
+                                @endif
+                            </p>
+                            @if($event->location)
+                                <p class="mt-1 text-sm text-slate-600">{{ $event->location }}</p>
+                            @endif
                         </div>
-                    @endforeach
-                </div>
-                
-                <!-- Call to Action Section -->
-                <div class="text-center">
-                    <div class="bg-gradient-to-r from-gray-700/20 to-gray-600/20 backdrop-blur-sm border border-gray-500/20 
-                                rounded-xl p-8 max-w-2xl mx-auto">
-                        <h2 class="text-3xl font-bold text-white mb-4">Stay Updated</h2>
-                        <p class="text-gray-300 text-lg mb-6">
-                            Follow us on social media for the latest tour announcements, behind-the-scenes content, and exclusive updates.
-                        </p>
-                        
-                        <!-- Social Links -->
-                        <div class="flex justify-center gap-4">
-                            <a href="https://www.instagram.com/pointofmadnessband/" target="_blank"
-                               class="bg-gradient-to-r from-pink-600 to-purple-600 text-white px-6 py-3 rounded-full 
-                                      font-semibold hover:from-pink-500 hover:to-purple-500 transition-all duration-300 
-                                      transform hover:scale-105 hover:shadow-lg hover:shadow-pink-500/30 flex items-center gap-2">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                                </svg>
-                                Follow on Instagram
-                            </a>
-                            
-                            <a href="https://www.tiktok.com/@point.of.madness" target="_blank"
-                               class="bg-gradient-to-r from-gray-600 to-gray-700 text-white px-6 py-3 rounded-full 
-                                      font-semibold hover:from-gray-500 hover:to-gray-600 transition-all duration-300 
-                                      transform hover:scale-105 hover:shadow-lg hover:shadow-gray-500/30 flex items-center gap-2">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-.88-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-                                </svg>
-                                Follow on TikTok
-                            </a>
+                        <div class="flex items-center gap-3">
+                            @if($event->media)
+                                <img src="{{ $event->media->versioned_url }}" alt="{{ $event->media->alt }}" class="h-24 w-24 rounded-lg object-cover">
+                            @endif
+                            @if($event->link)
+                                <a href="{{ $event->link->url }}" @if($event->link->target) target="{{ $event->link->target }}" @endif @if($event->link->rel) rel="{{ $event->link->rel }}" @endif class="inline-flex items-center gap-2 rounded-md bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-700">
+                                    {{ $event->link->label }}
+                                </a>
+                            @endif
                         </div>
                     </div>
+                    @if($event->description)
+                        <p class="mt-4 text-sm leading-relaxed text-slate-700">{{ $event->description }}</p>
+                    @endif
+                </article>
+            @empty
+                <div class="rounded-xl border border-dashed border-slate-300 bg-slate-50 px-6 py-12 text-center text-slate-600">
+                    @phrase('events.empty', 'No upcoming shows are scheduled right now. Check back soon!')
                 </div>
-            </div>
+            @endforelse
         </div>
-    </div>
+    </section>
 </x-app-layout>

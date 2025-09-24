@@ -19,6 +19,10 @@ Route::get('/contact', [ContactController::class, 'index'])
 Route::post('/contact', [ContactController::class, 'store'])
     ->name('contact.submit');
 
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::view('/dashboard', 'dashboard')->name('dashboard');
+});
+
 // Profile routes (still require auth)
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -27,3 +31,4 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+require __DIR__.'/admin.php';
