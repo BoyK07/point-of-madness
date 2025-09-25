@@ -9,7 +9,7 @@
     <div class="absolute inset-0 bg-gradient-to-br from-gray-900/30 via-gray-800/30 to-gray-700/30"></div>
     <div class="absolute top-0 right-1/3 w-64 h-64 bg-blue-900/10 rounded-full filter blur-3xl"></div>
     <div class="absolute bottom-0 left-1/3 w-64 h-64 bg-purple-900/10 rounded-full filter blur-3xl"></div>
-    
+
     <div class="relative max-w-6xl mx-auto">
         <div class="text-center mb-16">
             <h2 class="text-4xl md:text-5xl font-bold mb-4">
@@ -35,11 +35,11 @@
                     <div class="relative bg-gradient-to-br from-gray-900 to-black border-2 border-{{ $accent }}-500/30
                                 rounded-2xl overflow-hidden transform transition-all duration-300 hover:scale-105
                                 hover:border-{{ $accent }}-500 hover:shadow-2xl hover:shadow-{{ $accent }}-500/30">
-                        
+
                         <!-- Ticket Perforations -->
-                        <div class="absolute left-0 top-1/2 transform -translate-y-1/2 w-6 h-6 bg-[#1f0f12] rounded-full border-2 border-{{ $show['accent'] }}-500/30 -translate-x-3"></div>
-                        <div class="absolute right-0 top-1/2 transform -translate-y-1/2 w-6 h-6 bg-[#1f0f12] rounded-full border-2 border-{{ $show['accent'] }}-500/30 translate-x-3"></div>
-                        
+                        <div class="absolute left-0 top-1/2 transform -translate-y-1/2 w-6 h-6 bg-[#1f0f12] rounded-full border-2 border-{{ $accent }}-500/30 -translate-x-3"></div>
+                        <div class="absolute right-0 top-1/2 transform -translate-y-1/2 w-6 h-6 bg-[#1f0f12] rounded-full border-2 border-{{ $accent }}-500/30 translate-x-3"></div>
+
                         <!-- Ticket Header -->
                         <div class="bg-gradient-to-r from-{{ $accent }}-600 to-{{ $accent }}-700 p-6 text-center">
                             <div class="text-white">
@@ -89,10 +89,10 @@
                 </div>
             @endforeach
         </div>
-        
+
         <!-- Professional Call to Action -->
         <div class="mt-16 text-center">
-            <div class="bg-gradient-to-r from-gray-700/20 to-gray-600/20 backdrop-blur-sm border border-gray-500/20 
+            <div class="bg-gradient-to-r from-gray-700/20 to-gray-600/20 backdrop-blur-sm border border-gray-500/20
                         rounded-xl p-8 max-w-md mx-auto">
                 <h3 class="text-xl font-bold text-white mb-4">@phrase('home.upcoming.cta.title', 'Stay Connected')</h3>
                 <p class="text-gray-300 text-sm mb-6">

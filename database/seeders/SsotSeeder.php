@@ -320,7 +320,7 @@ class SsotSeeder extends Seeder
             ],
             'social.youtube' => [
                 'label' => 'YouTube',
-                'url' => '#',
+                'url' => 'https://www.youtube.com/@PointofMadness',
                 'target' => '_blank',
                 'rel' => 'noopener',
                 'group' => 'social',
@@ -328,7 +328,7 @@ class SsotSeeder extends Seeder
             ],
             'social.youtube_music' => [
                 'label' => 'YouTube Music',
-                'url' => '#',
+                'url' => 'https://music.youtube.com/channel/UC3byFEMycsebbNGxeFhx6CQ',
                 'target' => '_blank',
                 'rel' => 'noopener',
                 'group' => 'social',
@@ -344,7 +344,7 @@ class SsotSeeder extends Seeder
             ],
             'streaming.youtube' => [
                 'label' => 'YouTube',
-                'url' => '#',
+                'url' => 'https://www.youtube.com/@PointofMadness',
                 'target' => '_blank',
                 'rel' => 'noopener',
                 'group' => 'streaming',
@@ -352,7 +352,7 @@ class SsotSeeder extends Seeder
             ],
             'streaming.apple_music' => [
                 'label' => 'Apple Music',
-                'url' => '#',
+                'url' => 'https://music.apple.com/nl/artist/point-of-madness/1739804378',
                 'target' => '_blank',
                 'rel' => 'noopener',
                 'group' => 'streaming',
@@ -360,7 +360,7 @@ class SsotSeeder extends Seeder
             ],
             'streaming.amazon_music' => [
                 'label' => 'Amazon Music',
-                'url' => '#',
+                'url' => 'https://music.amazon.com/artists/B0CZV1WG82/point-of-madness',
                 'target' => '_blank',
                 'rel' => 'noopener',
                 'group' => 'streaming',
@@ -368,7 +368,7 @@ class SsotSeeder extends Seeder
             ],
             'streaming.deezer' => [
                 'label' => 'Deezer',
-                'url' => '#',
+                'url' => 'https://www.deezer.com/us/artist/260843331',
                 'target' => '_blank',
                 'rel' => 'noopener',
                 'group' => 'streaming',
@@ -392,36 +392,15 @@ class SsotSeeder extends Seeder
             ],
             'streaming.youtube_music' => [
                 'label' => 'YouTube Music',
-                'url' => '#',
+                'url' => 'https://music.youtube.com/channel/UC3byFEMycsebbNGxeFhx6CQ',
                 'target' => '_blank',
                 'rel' => 'noopener',
                 'group' => 'streaming',
                 'order' => 8,
             ],
-            'contact.booking' => [
-                'label' => 'Booking',
-                'url' => 'mailto:info@pointofmadness.nl?subject=Booking%20Request',
-                'target' => '_self',
-                'group' => 'contact',
-                'order' => 1,
-            ],
-            'contact.presskit' => [
-                'label' => 'Press Kit',
-                'url' => '#',
-                'target' => '_blank',
-                'group' => 'contact',
-                'order' => 2,
-            ],
-            'contact.management' => [
-                'label' => 'Management',
-                'url' => 'mailto:info@pointofmadness.nl?subject=Management%20Inquiry',
-                'target' => '_self',
-                'group' => 'contact',
-                'order' => 3,
-            ],
             'video.toxic' => [
                 'label' => 'TOXIC - Music Video',
-                'url' => '#',
+                'url' => 'https://www.youtube.com/watch?v=HGcrZPMlOrw&list=RDHGcrZPMlOrw',
                 'target' => '_blank',
                 'rel' => 'noopener',
                 'group' => 'video',
