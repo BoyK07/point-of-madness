@@ -31,7 +31,7 @@ class MediaController extends Controller
         $this->mediaService->store(
             $request->file('file'),
             $request->input('purpose'),
-            $request->safe()->except('file')->toArray()
+            $request->safe()->except('file')
         );
 
         return redirect()->route('admin.media.index')->with('status', 'Media opgeslagen.');
@@ -46,7 +46,7 @@ class MediaController extends Controller
     {
         $this->mediaService->update(
             $medium,
-            $request->safe()->except('file')->toArray(),
+            $request->safe()->except('file'),
             $request->file('file')
         );
 

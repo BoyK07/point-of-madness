@@ -6,13 +6,27 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StorePhraseRequest;
 use App\Http\Requests\Admin\UpdatePhraseRequest;
 use App\Models\Phrase;
+use Illuminate\Http\Request;
 
 class PhraseController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $search = trim((string) $request->input('q', ''));
+
+        $query = Phrase::query()
+            ->when($search !== '', function ($q) use ($search) {
+                $q->where(function ($w) use ($search) {
+                    $w->where('text', 'like', "%{$search}%")
+                      ->orWhere('key', 'like', "%{$search}%")
+                      ->orWhere('context', 'like', "%{$search}%");
+                });
+            })
+            ->orderBy('key');
+
         return view('admin.phrases.index', [
-            'phrases' => Phrase::orderBy('key')->paginate(25),
+            'phrases' => $query->paginate(25)->withQueryString(),
+            'search' => $search,
         ]);
     }
 

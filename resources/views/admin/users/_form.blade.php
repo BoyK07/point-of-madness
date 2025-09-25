@@ -18,7 +18,7 @@
         <input type="password" name="password_confirmation" class="rounded bg-slate-950 border border-slate-800 px-3 py-2 text-white" @if(!isset($user)) required @endif>
     </label>
 </div>
-<div class="flex justify-end gap-3">
-    <a href="{{ route('admin.users.index') }}" class="px-4 py-2 rounded border border-slate-700 text-slate-300 hover:border-slate-500">Annuleren</a>
-    <button type="submit" class="px-4 py-2 rounded bg-amber-500 text-slate-900 font-semibold hover:bg-amber-400">Opslaan</button>
+<div class="flex flex-wrap justify-end gap-3">
+    <a href="{{ route('admin.users.index') }}" class="px-4 py-2 rounded border border-slate-700 text-slate-300 hover:border-slate-500 w-full sm:w-auto text-center">Annuleren</a>
+    <button type="submit" class="px-4 py-2 rounded bg-amber-500 text-slate-900 font-semibold hover:bg-amber-400 w-full sm:w-auto">Opslaan</button>
 </div>

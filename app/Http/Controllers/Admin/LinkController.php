@@ -6,13 +6,27 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreLinkRequest;
 use App\Http\Requests\Admin\UpdateLinkRequest;
 use App\Models\Link;
+use Illuminate\Http\Request;
 
 class LinkController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $search = trim((string) $request->input('q', ''));
+
+        $query = Link::query()
+            ->when($search !== '', function ($q) use ($search) {
+                $q->where(function ($w) use ($search) {
+                    $w->where('label', 'like', "%{$search}%")
+                      ->orWhere('url', 'like', "%{$search}%");
+                });
+            })
+            ->orderBy('group')
+            ->orderBy('order');
+
         return view('admin.links.index', [
-            'links' => Link::orderBy('group')->orderBy('order')->paginate(20),
+            'links' => $query->paginate(20)->withQueryString(),
+            'search' => $search,
         ]);
     }
 

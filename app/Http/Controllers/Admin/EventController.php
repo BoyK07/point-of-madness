@@ -8,13 +8,27 @@ use App\Http\Requests\Admin\UpdateEventRequest;
 use App\Models\Event;
 use App\Models\Link;
 use App\Models\Media;
+use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $search = trim((string) $request->input('q', ''));
+
+        $query = Event::query()
+            ->with(['media', 'link'])
+            ->when($search !== '', function ($q) use ($search) {
+                $q->where(function ($w) use ($search) {
+                    $w->where('title', 'like', "%{$search}%")
+                      ->orWhere('location', 'like', "%{$search}%");
+                });
+            })
+            ->orderByDesc('starts_at');
+
         return view('admin.events.index', [
-            'events' => Event::with(['media', 'link'])->orderByDesc('starts_at')->paginate(20),
+            'events' => $query->paginate(20)->withQueryString(),
+            'search' => $search,
         ]);
     }
 
