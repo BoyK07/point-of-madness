@@ -32,32 +32,32 @@
         </div>
 
         <!-- Ambient effects -->
-        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-900/10 rounded-full filter blur-3xl"></div>
-        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-900/10 rounded-full filter blur-3xl"></div>
+        <div class="absolute top-1/4 left-1/4 w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-blue-900/10 rounded-full filter blur-3xl hidden sm:block"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-purple-900/10 rounded-full filter blur-3xl hidden sm:block"></div>
 
         <!-- Content -->
-        <div class="relative z-10 py-24 px-6">
+        <div class="relative z-10 py-16 sm:py-24 px-4 sm:px-6 lg:px-10">
             <div class="max-w-6xl mx-auto">
                 <!-- Page Header -->
-                <div class="text-center mb-16">
-                    <h1 class="text-5xl md:text-6xl font-black mb-4 tracking-wide">
+                <div class="text-center mb-12 sm:mb-16">
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-black mb-4 tracking-wide">
                         <span class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                             @phrase('contact.heading', 'Contact Us')
                         </span>
                     </h1>
-                    <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
-                    <p class="text-gray-400 mt-6 text-xl">@phrase('contact.subheading', 'Get in touch for bookings, collaborations, or just to say hello')</p>
+                    <div class="w-20 sm:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
+                    <p class="text-gray-400 mt-6 text-base sm:text-lg md:text-xl">@phrase('contact.subheading', 'Get in touch for bookings, collaborations, or just to say hello')</p>
                 </div>
 
                 <!-- Contact Grid -->
-                <div class="grid md:grid-cols-2 gap-12 mb-16">
+                <div class="grid lg:grid-cols-2 gap-8 sm:gap-12 mb-14 sm:mb-16">
                     <!-- Contact Form -->
                     <div>
-                        <div class="bg-gradient-to-br from-gray-800/60 to-black/60 backdrop-blur-sm border border-blue-500/30 rounded-2xl p-8">
+                        <div class="bg-gradient-to-br from-gray-800/60 to-black/60 backdrop-blur-sm border border-blue-500/30 rounded-2xl p-6 sm:p-8">
                             <div class="space-y-6">
                                 <div>
-                                    <h2 class="text-3xl font-bold text-white">@phrase('contact.form.title', 'Send us a message')</h2>
-                                    <p class="text-gray-300 mt-2 text-base">@phrase('contact.form.required_notice', 'All fields are required unless marked optional.')</p>
+                                    <h2 class="text-2xl sm:text-3xl font-bold text-white">@phrase('contact.form.title', 'Send us a message')</h2>
+                                    <p class="text-gray-300 mt-2 text-sm sm:text-base">@phrase('contact.form.required_notice', 'All fields are required unless marked optional.')</p>
                                 </div>
 
                                 <div id="contact-success" class="hidden rounded-xl border border-emerald-500/40 bg-emerald-500/10 p-4 text-emerald-200 text-sm" role="status" aria-live="polite" tabindex="-1">
@@ -65,7 +65,7 @@
                                 <div id="contact-errors" class="hidden rounded-xl border border-red-500/40 bg-red-500/10 p-4 text-red-200 text-sm" role="alert" aria-live="assertive" tabindex="-1">
                                 </div>
 
-                                <form id="contact-form" action="{{ route('contact.submit') }}" method="POST" enctype="multipart/form-data" class="space-y-6" novalidate data-captcha-site-key="{{ $captchaSiteKey }}" data-captcha-provider="{{ $captchaProvider }}">
+                                <form id="contact-form" action="{{ route('contact.submit') }}" method="POST" enctype="multipart/form-data" class="space-y-5 sm:space-y-6" novalidate data-captcha-site-key="{{ $captchaSiteKey }}" data-captcha-provider="{{ $captchaProvider }}">
                                     @csrf
                                     <input type="hidden" name="form_started_at" id="form_started_at" value="{{ now()->timestamp }}">
                                     <input type="hidden" name="captcha_token" id="captcha_token">
@@ -141,7 +141,7 @@
                                     <p id="acknowledgement-error" class="-mt-4 text-sm text-red-400 hidden" data-error-for="acknowledgement"></p>
 
                                     <div class="flex justify-end">
-                                        <button type="submit" class="inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 px-6 py-3 font-semibold text-white shadow-lg transition focus:outline-none focus:ring-2 focus:ring-blue-500/60 disabled:cursor-not-allowed disabled:opacity-60" data-submit-button>
+                                        <button type="submit" class="inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 px-5 sm:px-6 py-3 font-semibold text-white shadow-lg transition focus:outline-none focus:ring-2 focus:ring-blue-500/60 disabled:cursor-not-allowed disabled:opacity-60" data-submit-button>
                                             <span>@phrase('contact.form.submit', 'Send message')</span>
                                             <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"></path>
@@ -156,8 +156,8 @@
                     <!-- Social Media & Links -->
                     <div class="space-y-8">
                         <!-- Social Media Section -->
-                        <div class="bg-gradient-to-br from-gray-800/50 to-black/50 backdrop-blur-sm border border-pink-500/20 rounded-2xl p-8 hover:border-pink-500/40 transition-all duration-300">
-                            <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                        <div class="bg-gradient-to-br from-gray-800/50 to-black/50 backdrop-blur-sm border border-pink-500/20 rounded-2xl p-6 sm:p-8 hover:border-pink-500/40 transition-all duration-300">
+                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-3">
                                 <div class="w-8 h-8 bg-gradient-to-br from-pink-500 to-purple-600 rounded-lg flex items-center justify-center">
                                     <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
@@ -176,7 +176,7 @@
                                     </div>
                                     <div>
                                         <div class="text-white font-semibold group-hover:text-pink-400 transition-colors duration-300">{{ $instagramLink?->label ?? phrase('contact.social.instagram.label', 'Instagram') }}</div>
-                                        <div class="text-gray-400 text-sm">@phrase('contact.social.instagram.handle', '@pointofmadnessband')</div>
+                                        <div class="text-gray-400 text-xs sm:text-sm">@phrase('contact.social.instagram.handle', '@pointofmadnessband')</div>
                                     </div>
                                 </a>
 
@@ -189,7 +189,7 @@
                                     </div>
                                     <div>
                                         <div class="text-white font-semibold group-hover:text-gray-300 transition-colors duration-300">{{ $tiktokLink?->label ?? phrase('contact.social.tiktok.label', 'TikTok') }}</div>
-                                        <div class="text-gray-400 text-sm">@phrase('contact.social.tiktok.handle', '@point.of.madness')</div>
+                                        <div class="text-gray-400 text-xs sm:text-sm">@phrase('contact.social.tiktok.handle', '@point.of.madness')</div>
                                     </div>
                                 </a>
 
@@ -214,7 +214,7 @@
 
                         <!-- Location -->
                         <div class="bg-gradient-to-br from-gray-800/50 to-black/50 backdrop-blur-sm border border-blue-500/20 rounded-2xl p-8 hover:border-blue-500/40 transition-all duration-300">
-                            <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                            <h3 class="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-3">
                                 <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
                                     <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>

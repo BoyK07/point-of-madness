@@ -13,14 +13,14 @@
     
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="flex h-20">
+        <div class="flex h-16 sm:h-20">
             <div class="flex w-full items-center">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ $navHome?->url ?? route('index') }}" class="flex items-center space-x-3 group">
                         <img src="{{ ssot_image_url('brand.logo') ?? asset('images/pointofmadness_logo.png') }}"
                              alt="@phrase('brand.logo.alt', 'Point of Madness Logo')"
-                             class="h-12 w-auto transition-transform duration-300 group-hover:scale-105">
+                             class="h-10 sm:h-12 w-auto transition-transform duration-300 group-hover:scale-105">
                         <span class="text-xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-gray-300 bg-clip-text text-transparent hidden sm:block">
                             @phrase('brand.name', 'Point of Madness')
                         </span>
@@ -29,7 +29,7 @@
 
                 <!-- Navigation Links -->
                 <div class="flex-1 flex justify-center">
-                    <div class="hidden space-x-8 sm:flex items-center">
+                    <div class="hidden space-x-6 lg:space-x-8 sm:flex items-center">
                         <x-nav-link :href="$navHome?->url ?? route('index')" :active="request()->routeIs('index')"
                                     class="px-4 py-2 font-medium transition-all duration-300
                                            {{ request()->routeIs('index') ? 'text-white' : 'text-gray-300 hover:text-gray-100' }}">

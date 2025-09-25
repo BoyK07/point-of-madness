@@ -29,33 +29,33 @@
     $iconYoutubeMusic = ssot_links('social.youtube_music')->first();
 @endphp
 
-<footer class="relative mt-24 py-16 px-6">
+<footer class="relative mt-24 py-12 sm:py-16 px-4 sm:px-6">
     <!-- Professional Background -->
     <div class="absolute inset-0 bg-gradient-to-t from-black via-gray-900/30 to-transparent"></div>
     <div class="absolute bottom-0 left-1/4 w-96 h-96 bg-blue-900/5 rounded-full filter blur-3xl"></div>
     <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-900/5 rounded-full filter blur-3xl"></div>
     
-    <div class="relative max-w-4xl mx-auto">
+    <div class="relative max-w-4xl sm:max-w-5xl mx-auto">
         <!-- Main Footer Content -->
         <div class="text-center space-y-8">
             <!-- Band Logo/Name -->
             <div class="mb-12">
-                <h3 class="text-3xl font-black tracking-wider mb-2">
+                <h3 class="text-2xl sm:text-3xl font-black tracking-wider mb-2">
                     <span class="bg-gradient-to-r from-blue-400 via-purple-400 to-gray-400 bg-clip-text text-transparent">
                         @phrase('footer.brand.heading', 'POINT OF MADNESS')
                     </span>
                 </h3>
                 <div class="w-32 h-px bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
-                <p class="text-gray-400 mt-4 text-sm">
+                <p class="text-gray-400 mt-4 text-xs sm:text-sm">
                     @phrase('footer.brand.subtitle', 'Reviving 80s New Wave • Netherlands • Since 2023')
                 </p>
             </div>
 
             <!-- Quick Links -->
-            <div class="grid md:grid-cols-3 gap-8 mb-12">
+            <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3 mb-12 text-left sm:text-center md:text-left">
                 <!-- Music Links -->
                 <div>
-                    <h4 class="text-white font-semibold mb-4 text-lg">@phrase('footer.listen.heading', 'Listen')</h4>
+                    <h4 class="text-white font-semibold mb-4 text-base sm:text-lg">@phrase('footer.listen.heading', 'Listen')</h4>
                     <div class="space-y-2">
                         @foreach($footerListenLinks as $item)
                             @php $link = ssot_links($item['slug'])->first(); @endphp
@@ -70,7 +70,7 @@
 
                 <!-- Social Media -->
                 <div>
-                    <h4 class="text-white font-semibold mb-4 text-lg">@phrase('footer.connect.heading', 'Connect')</h4>
+                    <h4 class="text-white font-semibold mb-4 text-base sm:text-lg">@phrase('footer.connect.heading', 'Connect')</h4>
                     <div class="space-y-2">
                         @foreach($footerConnectLinks as $item)
                             @php $link = ssot_links($item['slug'])->first(); @endphp
@@ -85,7 +85,7 @@
 
                 <!-- Contact -->
                 <div>
-                    <h4 class="text-white font-semibold mb-4 text-lg">@phrase('footer.contact.heading', 'Contact')</h4>
+                    <h4 class="text-white font-semibold mb-4 text-base sm:text-lg">@phrase('footer.contact.heading', 'Contact')</h4>
                     <div class="space-y-2">
                         @foreach($footerContactLinks as $item)
                             @php $link = ssot_links($item['slug'])->first(); @endphp
@@ -100,7 +100,7 @@
             </div>
 
             <!-- Social Icons -->
-            <div class="flex justify-center space-x-6 mb-8">
+            <div class="flex flex-wrap justify-center gap-4 sm:gap-6 mb-8">
                 <a href="{{ $iconSpotify?->url ?? '#' }}" target="{{ $iconSpotify?->target ?? '_blank' }}"
                    @if($iconSpotify?->rel) rel="{{ $iconSpotify->rel }}" @endif
                    class="group w-12 h-12 bg-gradient-to-br from-green-500/20 to-green-600/20
@@ -170,7 +170,7 @@
 
             <!-- Copyright and Footer Info -->
             <div class="border-t border-gray-700 pt-8 space-y-4">
-                <div class="flex flex-col md:flex-row justify-center items-center gap-4 text-gray-400 text-sm">
+                <div class="flex flex-col md:flex-row justify-center items-center gap-2 sm:gap-4 text-gray-400 text-xs sm:text-sm">
                     <div>&copy; {{ Carbon::now()->year }} @phrase('footer.copyright.owner', 'Point of Madness'). @phrase('footer.copyright.rights', 'All rights reserved.')</div>
                     <div class="hidden md:block text-gray-600">•</div>
                     <div>@phrase('footer.craft', 'Made with 💜 for the new wave revival')</div>
