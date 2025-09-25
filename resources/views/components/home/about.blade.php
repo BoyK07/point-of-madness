@@ -9,7 +9,7 @@
         <div class="text-center mb-16">
             <h2 class="text-4xl md:text-5xl font-bold mb-4">
                 <span class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                    About the Band
+                    @phrase('home.about.heading', 'About the Band')
                 </span>
             </h2>
             <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
@@ -21,24 +21,21 @@
                 <div class="relative">
                     <div class="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-blue-500 to-purple-500 rounded-full"></div>
                     <p class="text-gray-300 text-lg leading-relaxed pl-1">
-                        Meet Point Of Madness, a four-piece band born from a shared love of 80s new wave.
-                        Formed in 2023, their music is fueled by drum computers, catchy basslines, and fiery guitar riffs.
+                        @phrase('home.about.paragraph_1', 'Meet Point Of Madness, a four-piece band born from a shared love of 80s new wave. Formed in 2023, their music is fueled by drum computers, catchy basslines, and fiery guitar riffs.')
                     </p>
                 </div>
 
                 <div class="relative">
                     <div class="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-purple-500 to-gray-500 rounded-full"></div>
                     <p class="text-gray-300 text-lg leading-relaxed pl-1">
-                        With Floris Anker on bass, Kay Spijker on guitar, Sem van Dongen on vocals, and Kai de Wild on drums,
-                        they're on a mission to revive the spirit of the past in today's tech-driven world.
+                        @phrase('home.about.paragraph_2', "With Floris Anker on bass, Kay Spijker on guitar, Sem van Dongen on vocals, and Kai de Wild on drums, they're on a mission to revive the spirit of the past in today's tech-driven world.")
                     </p>
                 </div>
 
                 <div class="relative">
                     <div class="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-gray-500 to-blue-500 rounded-full"></div>
                     <p class="text-gray-300 text-lg leading-relaxed pl-1">
-                        Get ready to experience a blend of retro vibes and modern sounds that'll transport you
-                        back in time while keeping you rooted in the present.
+                        @phrase('home.about.paragraph_3', "Get ready to experience a blend of retro vibes and modern sounds that'll transport you back in time while keeping you rooted in the present.")
                     </p>
                 </div>
             </div>
@@ -48,24 +45,24 @@
                 <div class="bg-gradient-to-br from-gray-700/20 to-gray-600/20 backdrop-blur-sm border border-gray-500/20 rounded-xl p-6">
                     <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
                         <span class="w-2 h-2 bg-blue-400 rounded-full"></span>
-                        Quick Facts
+                        @phrase('home.about.quickfacts.title', 'Quick Facts')
                     </h3>
                     <div class="space-y-3">
                         <div class="flex justify-between items-center">
-                            <span class="text-gray-400">Formed</span>
-                            <span class="text-white font-semibold">2023</span>
+                            <span class="text-gray-400">@phrase('home.about.quickfacts.formed_label', 'Formed')</span>
+                            <span class="text-white font-semibold">@phrase('home.about.quickfacts.formed_value', '2023')</span>
                         </div>
                         <div class="flex justify-between items-center">
-                            <span class="text-gray-400">Origin</span>
-                            <span class="text-white font-semibold">Netherlands</span>
+                            <span class="text-gray-400">@phrase('home.about.quickfacts.origin_label', 'Origin')</span>
+                            <span class="text-white font-semibold">@phrase('home.about.quickfacts.origin_value', 'Netherlands')</span>
                         </div>
                         <div class="flex justify-between items-center">
-                            <span class="text-gray-400">Genre</span>
-                            <span class="text-white font-semibold">New Wave Revival</span>
+                            <span class="text-gray-400">@phrase('home.about.quickfacts.genre_label', 'Genre')</span>
+                            <span class="text-white font-semibold">@phrase('home.about.quickfacts.genre_value', 'New Wave Revival')</span>
                         </div>
                         <div class="flex justify-between items-center">
-                            <span class="text-gray-400">Members</span>
-                            <span class="text-white font-semibold">4</span>
+                            <span class="text-gray-400">@phrase('home.about.quickfacts.members_label', 'Members')</span>
+                            <span class="text-white font-semibold">@phrase('home.about.quickfacts.members_value', '4')</span>
                         </div>
                     </div>
                 </div>
@@ -73,7 +70,7 @@
                 <div class="bg-gradient-to-br from-blue-600/20 to-purple-600/20 backdrop-blur-sm border border-blue-500/20 rounded-xl p-6">
                     <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
                         <span class="w-2 h-2 bg-purple-400 rounded-full"></span>
-                        Latest Release
+                        @phrase('home.about.latest_release.title', 'Latest Release')
                     </h3>
                     <div class="flex items-center gap-4">
                         <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
@@ -82,8 +79,8 @@
                             </svg>
                         </div>
                         <div>
-                            <h4 class="text-white font-semibold">{{ $latestRelease?->name ?? 'N/A'	 }}</h4>
-                            <p class="text-gray-400 text-sm">Latest Release • {{ $latestRelease?->release_date?->format('Y') ?? 'N/A' }}</p>
+                            <h4 class="text-white font-semibold">{{ $latestRelease?->name ?? 'N/A' }}</h4>
+                            <p class="text-gray-400 text-sm">@phrase('home.about.latest_release.caption_prefix', 'Latest Release') • {{ $latestRelease?->release_date?->format('Y') ?? 'N/A' }}</p>
                         </div>
                     </div>
                 </div>
