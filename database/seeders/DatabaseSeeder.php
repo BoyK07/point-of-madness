@@ -12,8 +12,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Artist::create([
+        Artist::query()->firstOrCreate([
             'spotify_id' => '1YhRX1mRz6rzQofSyzlszi',
+        ]);
+
+        $this->call([
+            AdminUserSeeder::class,
+            SsotSeeder::class,
         ]);
     }
 }

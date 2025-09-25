@@ -9,41 +9,41 @@
         <div class="text-center mb-16">
             <h2 class="text-4xl md:text-5xl font-bold mb-4">
                 <span class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                    Meet the Band
+                    @phrase('home.members.heading', 'Meet the Band')
                 </span>
             </h2>
             <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
-            <p class="text-gray-400 mt-6 text-lg">Four professional musicians creating the new wave revival</p>
+            <p class="text-gray-400 mt-6 text-lg">@phrase('home.members.subheading', 'Four professional musicians creating the new wave revival')</p>
         </div>
 
         @php
             $members = [
                 [
-                    'name' => 'Floris Anker',
-                    'role' => 'Bassist',
-                    'description' => 'Driving the rhythm section with precision and creating the foundation of our distinctive sound.',
-                    'imagePath' => 'images/member_cards/floris_anker.png',
+                    'name' => phrase('home.members.floris.name', 'Floris Anker'),
+                    'role' => phrase('home.members.floris.role', 'Bassist'),
+                    'description' => phrase('home.members.floris.description', 'Driving the rhythm section with precision and creating the foundation of our distinctive sound.'),
+                    'imagePath' => ssot_image_url('members.floris') ?? 'images/member_cards/floris_anker.png',
                     'accent' => 'blue',
                 ],
                 [
-                    'name' => 'Kay Spijker',
-                    'role' => 'Guitarist',
-                    'description' => 'Crafting atmospheric guitar work and signature riffs that define our musical identity.',
-                    'imagePath' => 'images/member_cards/kay.png',
+                    'name' => phrase('home.members.kay.name', 'Kay Spijker'),
+                    'role' => phrase('home.members.kay.role', 'Guitarist'),
+                    'description' => phrase('home.members.kay.description', 'Crafting atmospheric guitar work and signature riffs that define our musical identity.'),
+                    'imagePath' => ssot_image_url('members.kay') ?? 'images/member_cards/kay.png',
                     'accent' => 'purple',
                 ],
                 [
-                    'name' => 'Sem van Dongen',
-                    'role' => 'Singer',
-                    'description' => 'Delivering captivating vocals that bring emotion and energy to our performances.',
-                    'imagePath' => 'images/member_cards/sem_van_dongen.png',
+                    'name' => phrase('home.members.sem.name', 'Sem van Dongen'),
+                    'role' => phrase('home.members.sem.role', 'Singer'),
+                    'description' => phrase('home.members.sem.description', 'Delivering captivating vocals that bring emotion and energy to our performances.'),
+                    'imagePath' => ssot_image_url('members.sem') ?? 'images/member_cards/sem_van_dongen.png',
                     'accent' => 'gray',
                 ],
                 [
-                    'name' => 'Kai de Wild',
-                    'role' => 'Drummer',
-                    'description' => 'Providing the dynamic beats and rhythmic foundation that drives our live performances.',
-                    'imagePath' => 'images/member_cards/kai.png',
+                    'name' => phrase('home.members.kai.name', 'Kai de Wild'),
+                    'role' => phrase('home.members.kai.role', 'Drummer'),
+                    'description' => phrase('home.members.kai.description', 'Providing the dynamic beats and rhythmic foundation that drives our live performances.'),
+                    'imagePath' => ssot_image_url('members.kai') ?? 'images/member_cards/kai.png',
                     'accent' => 'indigo',
                 ],
             ];
@@ -96,23 +96,22 @@
         <!-- Professional Bottom Section -->
         <div class="mt-16 text-center">
             <div class="bg-gray-800/30 backdrop-blur-sm border border-gray-600/30 rounded-xl p-6 max-w-2xl mx-auto">
-                <h3 class="text-xl font-semibold text-white mb-4">Professional Booking</h3>
+                <h3 class="text-xl font-semibold text-white mb-4">@phrase('home.members.booking.title', 'Professional Booking')</h3>
                 <p class="text-gray-400 text-sm mb-4">
-                    Available for festivals, venues, private events, and corporate functions. 
-                    Contact us for professional performance inquiries.
+                    @phrase('home.members.booking.description', 'Available for festivals, venues, private events, and corporate functions. Contact us for professional performance inquiries.')
                 </p>
                 <div class="flex justify-center gap-4 text-sm text-gray-500">
                     <span class="flex items-center gap-2">
                         <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
-                        Est. 2023
+                        @phrase('home.members.booking.established', 'Est. 2023')
                     </span>
                     <span class="flex items-center gap-2">
                         <div class="w-2 h-2 bg-purple-500 rounded-full"></div>
-                        Netherlands
+                        @phrase('home.members.booking.origin', 'Netherlands')
                     </span>
                     <span class="flex items-center gap-2">
                         <div class="w-2 h-2 bg-gray-500 rounded-full"></div>
-                        4-piece band
+                        @phrase('home.members.booking.size', '4-piece band')
                     </span>
                 </div>
             </div>

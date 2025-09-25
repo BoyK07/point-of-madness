@@ -1,5 +1,24 @@
 <x-app-layout>
     <!-- Professional Contact Page -->
+    @php
+        $instagramLink = ssot_links('social.instagram')->first();
+        $tiktokLink = ssot_links('social.tiktok')->first();
+        $spotifyLink = ssot_links('social.spotify')->first() ?? ssot_links('streaming.spotify')->first();
+        $reasonDescriptions = [
+            'booking' => phrase('contact.form.reason.description.booking', 'Bookings for festivals, venues, private events, and corporate functions.'),
+            'general' => phrase('contact.form.reason.description.general', 'Questions about our music, collaborations, or general information.'),
+            'press' => phrase('contact.form.reason.description.press', 'Media inquiries, interviews, and press kit requests.'),
+            'fans' => phrase('contact.form.reason.description.fans', 'For fans who want to say hi, share feedback, or send a personal message.'),
+        ];
+        $formMessages = [
+            'reason_default' => phrase('contact.form.reason.help_default', 'Please choose the option that best fits your message.'),
+            'success' => phrase('contact.form.success', 'Thank you! Your message has been sent successfully.'),
+            'validation_error' => phrase('contact.form.validation_error', "We couldn't send your message yet. Please review the details below."),
+            'captcha_failed' => phrase('contact.form.captcha_failed', 'Captcha verification failed. Please reload the page and try again.'),
+            'error' => phrase('contact.form.error', 'Something went wrong while sending your message. Please try again in a moment.'),
+        ];
+    @endphp
+
     <div class="relative min-h-screen">
         <!-- Background matching homepage -->
         <div class="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-800 to-black">
@@ -23,11 +42,11 @@
                 <div class="text-center mb-16">
                     <h1 class="text-5xl md:text-6xl font-black mb-4 tracking-wide">
                         <span class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                            Contact Us
+                            @phrase('contact.heading', 'Contact Us')
                         </span>
                     </h1>
                     <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
-                    <p class="text-gray-400 mt-6 text-xl">Get in touch for bookings, collaborations, or just to say hello</p>
+                    <p class="text-gray-400 mt-6 text-xl">@phrase('contact.subheading', 'Get in touch for bookings, collaborations, or just to say hello')</p>
                 </div>
 
                 <!-- Contact Grid -->
@@ -37,8 +56,8 @@
                         <div class="bg-gradient-to-br from-gray-800/60 to-black/60 backdrop-blur-sm border border-blue-500/30 rounded-2xl p-8">
                             <div class="space-y-6">
                                 <div>
-                                    <h2 class="text-3xl font-bold text-white">Send us a message</h2>
-                                    <p class="text-gray-300 mt-2 text-base">All fields are required unless marked optional.</p>
+                                    <h2 class="text-3xl font-bold text-white">@phrase('contact.form.title', 'Send us a message')</h2>
+                                    <p class="text-gray-300 mt-2 text-base">@phrase('contact.form.required_notice', 'All fields are required unless marked optional.')</p>
                                 </div>
 
                                 <div id="contact-success" class="hidden rounded-xl border border-emerald-500/40 bg-emerald-500/10 p-4 text-emerald-200 text-sm" role="status" aria-live="polite" tabindex="-1">
@@ -52,78 +71,78 @@
                                     <input type="hidden" name="captcha_token" id="captcha_token">
 
                                     <div class="sr-only" aria-hidden="true">
-                                        <label for="website">Leave this field empty</label>
+                                        <label for="website">@phrase('contact.form.honeypot_label', 'Leave this field empty')</label>
                                         <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
                                     </div>
 
                                     <div>
-                                        <label for="name" class="block text-sm font-semibold text-gray-200">Name / Company name</label>
-                                        <input type="text" name="name" id="name" required autocomplete="name" aria-describedby="name-error" class="mt-2 block w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-white placeholder-gray-500 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/70" placeholder="Your full name or company name">
+                                        <label for="name" class="block text-sm font-semibold text-gray-200">@phrase('contact.form.name.label', 'Name / Company name')</label>
+                                        <input type="text" name="name" id="name" required autocomplete="name" aria-describedby="name-error" class="mt-2 block w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-white placeholder-gray-500 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/70" placeholder="@phrase('contact.form.name.placeholder', 'Your full name or company name')">
                                         <p id="name-error" class="mt-2 text-sm text-red-400 hidden" data-error-for="name"></p>
                                     </div>
 
                                     <div>
-                                        <label for="email" class="block text-sm font-semibold text-gray-200">Email address</label>
-                                        <input type="email" name="email" id="email" required autocomplete="email" aria-describedby="email-error" class="mt-2 block w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-white placeholder-gray-500 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/70" placeholder="you@example.com">
+                                        <label for="email" class="block text-sm font-semibold text-gray-200">@phrase('contact.form.email.label', 'Email address')</label>
+                                        <input type="email" name="email" id="email" required autocomplete="email" aria-describedby="email-error" class="mt-2 block w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-white placeholder-gray-500 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/70" placeholder="@phrase('contact.form.email.placeholder', 'you@example.com')">
                                         <p id="email-error" class="mt-2 text-sm text-red-400 hidden" data-error-for="email"></p>
                                     </div>
 
                                     <div>
-                                        <label for="reason" class="block text-sm font-semibold text-gray-200">Reason for contacting</label>
+                                        <label for="reason" class="block text-sm font-semibold text-gray-200">@phrase('contact.form.reason.label', 'Reason for contacting')</label>
                                         <select name="reason" id="reason" required aria-describedby="reason-help reason-error" class="mt-2 block w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-white shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/70">
-                                            <option value="" disabled selected>Select an option</option>
-                                            <option value="booking">Professional Booking</option>
-                                            <option value="general">General Inquiries</option>
-                                            <option value="press">Press &amp; Media</option>
-                                            <option value="fans">Fans / Say Hi</option>
+                                            <option value="" disabled selected>@phrase('contact.form.reason.option_default', 'Select an option')</option>
+                                            <option value="booking">@phrase('contact.form.reason.option_booking', 'Professional Booking')</option>
+                                            <option value="general">@phrase('contact.form.reason.option_general', 'General Inquiries')</option>
+                                            <option value="press">@phrase('contact.form.reason.option_press', 'Press & Media')</option>
+                                            <option value="fans">@phrase('contact.form.reason.option_fans', 'Fans / Say Hi')</option>
                                         </select>
-                                        <p id="reason-help" class="mt-2 text-sm text-gray-300">Please choose the option that best fits your message.</p>
+                                        <p id="reason-help" class="mt-2 text-sm text-gray-300">@phrase('contact.form.reason.help_default', 'Please choose the option that best fits your message.')</p>
                                         <p id="reason-error" class="mt-2 text-sm text-red-400 hidden" data-error-for="reason"></p>
                                     </div>
 
                                     <div>
-                                        <label for="subject" class="block text-sm font-semibold text-gray-200">Subject</label>
-                                        <input type="text" name="subject" id="subject" required aria-describedby="subject-error" class="mt-2 block w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-white placeholder-gray-500 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/70" placeholder="How can we help?">
+                                        <label for="subject" class="block text-sm font-semibold text-gray-200">@phrase('contact.form.subject.label', 'Subject')</label>
+                                        <input type="text" name="subject" id="subject" required aria-describedby="subject-error" class="mt-2 block w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-white placeholder-gray-500 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/70" placeholder="@phrase('contact.form.subject.placeholder', 'How can we help?')">
                                         <p id="subject-error" class="mt-2 text-sm text-red-400 hidden" data-error-for="subject"></p>
                                     </div>
 
                                     <div>
-                                        <label for="message" class="block text-sm font-semibold text-gray-200">Message / Description</label>
-                                        <textarea name="message" id="message" rows="6" required aria-describedby="message-error" class="mt-2 block w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-white placeholder-gray-500 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/70" placeholder="Share as much detail as possible"></textarea>
+                                        <label for="message" class="block text-sm font-semibold text-gray-200">@phrase('contact.form.message.label', 'Message / Description')</label>
+                                        <textarea name="message" id="message" rows="6" required aria-describedby="message-error" class="mt-2 block w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-white placeholder-gray-500 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/70" placeholder="@phrase('contact.form.message.placeholder', 'Share as much detail as possible')"></textarea>
                                         <p id="message-error" class="mt-2 text-sm text-red-400 hidden" data-error-for="message"></p>
                                     </div>
 
                                     <div class="grid gap-4 md:grid-cols-2">
                                         <div>
-                                            <label for="phone" class="block text-sm font-semibold text-gray-200">Phone (optional)</label>
-                                            <input type="tel" name="phone" id="phone" aria-describedby="phone-error" class="mt-2 block w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-white placeholder-gray-500 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/70" placeholder="Include country code">
+                                            <label for="phone" class="block text-sm font-semibold text-gray-200">@phrase('contact.form.phone.label', 'Phone (optional)')</label>
+                                            <input type="tel" name="phone" id="phone" aria-describedby="phone-error" class="mt-2 block w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-white placeholder-gray-500 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/70" placeholder="@phrase('contact.form.phone.placeholder', 'Include country code')">
                                             <p id="phone-error" class="mt-2 text-sm text-red-400 hidden" data-error-for="phone"></p>
                                         </div>
                                         <div>
-                                            <label for="company" class="block text-sm font-semibold text-gray-200">Company (optional)</label>
-                                            <input type="text" name="company" id="company" aria-describedby="company-error" class="mt-2 block w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-white placeholder-gray-500 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/70" placeholder="Your organisation">
+                                            <label for="company" class="block text-sm font-semibold text-gray-200">@phrase('contact.form.company.label', 'Company (optional)')</label>
+                                            <input type="text" name="company" id="company" aria-describedby="company-error" class="mt-2 block w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-white placeholder-gray-500 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/70" placeholder="@phrase('contact.form.company.placeholder', 'Your organisation')">
                                             <p id="company-error" class="mt-2 text-sm text-red-400 hidden" data-error-for="company"></p>
                                         </div>
                                     </div>
 
                                     <div>
-                                        <label for="attachment" class="block text-sm font-semibold text-gray-200">Attachment (optional)</label>
+                                        <label for="attachment" class="block text-sm font-semibold text-gray-200">@phrase('contact.form.attachment.label', 'Attachment (optional)')</label>
                                         <input type="file" name="attachment" id="attachment" accept=".pdf,.jpg,.jpeg,.png,.webp" aria-describedby="attachment-hint attachment-error" class="mt-2 block w-full text-sm text-gray-300 file:mr-4 file:rounded-lg file:border-0 file:bg-blue-500/10 file:px-4 file:py-2 file:text-blue-200 hover:file:bg-blue-500/20">
-                                        <p id="attachment-hint" class="mt-2 text-xs text-gray-400">Accepted formats: pdf, jpg, jpeg, png, webp up to 5 MB.</p>
+                                        <p id="attachment-hint" class="mt-2 text-xs text-gray-400">@phrase('contact.form.attachment.hint', 'Accepted formats: pdf, jpg, jpeg, png, webp up to 5 MB.')</p>
                                         <p id="attachment-error" class="mt-2 text-sm text-red-400 hidden" data-error-for="attachment"></p>
                                     </div>
 
                                     <div class="flex items-start gap-3 rounded-xl border border-white/10 bg-black/40 p-4">
                                         <input type="checkbox" name="acknowledgement" id="acknowledgement" required class="mt-1 h-5 w-5 rounded border-white/20 bg-black/60 text-blue-500 focus:ring-blue-500/60">
                                         <label for="acknowledgement" class="text-sm text-gray-200">
-                                            “I understand that it may take some time for Point of Madness to reply and that spam messages will not be answered.”
+                                            @phrase('contact.form.acknowledgement_copy', '“I understand that it may take some time for Point of Madness to reply and that spam messages will not be answered.”')
                                         </label>
                                     </div>
                                     <p id="acknowledgement-error" class="-mt-4 text-sm text-red-400 hidden" data-error-for="acknowledgement"></p>
 
                                     <div class="flex justify-end">
                                         <button type="submit" class="inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 px-6 py-3 font-semibold text-white shadow-lg transition focus:outline-none focus:ring-2 focus:ring-blue-500/60 disabled:cursor-not-allowed disabled:opacity-60" data-submit-button>
-                                            <span>Send message</span>
+                                            <span>@phrase('contact.form.submit', 'Send message')</span>
                                             <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"></path>
                                             </svg>
@@ -137,19 +156,18 @@
                     <!-- Social Media & Links -->
                     <div class="space-y-8">
                         <!-- Social Media Section -->
-                        <div class="bg-gradient-to-br from-gray-800/50 to-black/50 backdrop-blur-sm border border-pink-500/20
-                                    rounded-2xl p-8 hover:border-pink-500/40 transition-all duration-300">
+                        <div class="bg-gradient-to-br from-gray-800/50 to-black/50 backdrop-blur-sm border border-pink-500/20 rounded-2xl p-8 hover:border-pink-500/40 transition-all duration-300">
                             <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
                                 <div class="w-8 h-8 bg-gradient-to-br from-pink-500 to-purple-600 rounded-lg flex items-center justify-center">
                                     <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
                                     </svg>
                                 </div>
-                                Social Media
+                                @phrase('contact.social.heading', 'Social Media')
                             </h3>
 
                             <div class="space-y-4 mb-6">
-                                <a href="https://www.instagram.com/pointofmadnessband/" target="_blank"
+                                <a href="{{ $instagramLink?->url ?? '#' }}" target="{{ $instagramLink?->target ?? '_blank' }}" @if($instagramLink?->rel) rel="{{ $instagramLink->rel }}" @endif
                                    class="flex items-center gap-4 p-4 bg-gray-700/30 rounded-xl hover:bg-gray-700/50 transition-all duration-300 group">
                                     <div class="w-10 h-10 bg-gradient-to-br from-pink-500 to-purple-600 rounded-lg flex items-center justify-center">
                                         <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -157,12 +175,12 @@
                                         </svg>
                                     </div>
                                     <div>
-                                        <div class="text-white font-semibold group-hover:text-pink-400 transition-colors duration-300">Instagram</div>
-                                        <div class="text-gray-400 text-sm">@pointofmadnessband</div>
+                                        <div class="text-white font-semibold group-hover:text-pink-400 transition-colors duration-300">{{ $instagramLink?->label ?? phrase('contact.social.instagram.label', 'Instagram') }}</div>
+                                        <div class="text-gray-400 text-sm">@phrase('contact.social.instagram.handle', '@pointofmadnessband')</div>
                                     </div>
                                 </a>
 
-                                <a href="https://www.tiktok.com/@point.of.madness" target="_blank"
+                                <a href="{{ $tiktokLink?->url ?? '#' }}" target="{{ $tiktokLink?->target ?? '_blank' }}" @if($tiktokLink?->rel) rel="{{ $tiktokLink->rel }}" @endif
                                    class="flex items-center gap-4 p-4 bg-gray-700/30 rounded-xl hover:bg-gray-700/50 transition-all duration-300 group">
                                     <div class="w-10 h-10 bg-gradient-to-br from-gray-500 to-gray-600 rounded-lg flex items-center justify-center">
                                         <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -170,33 +188,32 @@
                                         </svg>
                                     </div>
                                     <div>
-                                        <div class="text-white font-semibold group-hover:text-gray-300 transition-colors duration-300">TikTok</div>
-                                        <div class="text-gray-400 text-sm">@point.of.madness</div>
+                                        <div class="text-white font-semibold group-hover:text-gray-300 transition-colors duration-300">{{ $tiktokLink?->label ?? phrase('contact.social.tiktok.label', 'TikTok') }}</div>
+                                        <div class="text-gray-400 text-sm">@phrase('contact.social.tiktok.handle', '@point.of.madness')</div>
                                     </div>
                                 </a>
 
-                                <a href="https://open.spotify.com/artist/1YhRX1mRz6rzQofSyzlszi" target="_blank"
+                                <a href="{{ $spotifyLink?->url ?? '#' }}" target="{{ $spotifyLink?->target ?? '_blank' }}" @if($spotifyLink?->rel) rel="{{ $spotifyLink->rel }}" @endif
                                    class="flex items-center gap-4 p-4 bg-gray-700/30 rounded-xl hover:bg-gray-700/50 transition-all duration-300 group">
                                     <div class="w-10 h-10 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center">
                                         <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.611 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.42 1.56-.299.421-1.02.599-1.559.3z"/>
+                                            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.42 1.56-.299.421-1.02.599-1.559.3z"/>
                                         </svg>
                                     </div>
                                     <div>
-                                        <div class="text-white font-semibold group-hover:text-green-400 transition-colors duration-300">Spotify</div>
-                                        <div class="text-gray-400 text-sm">Point of Madness</div>
+                                        <div class="text-white font-semibold group-hover:text-green-400 transition-colors duration-300">{{ $spotifyLink?->label ?? phrase('contact.social.spotify.label', 'Spotify') }}</div>
+                                        <div class="text-gray-400 text-sm">@phrase('contact.social.spotify.handle', 'Point of Madness')</div>
                                     </div>
                                 </a>
                             </div>
 
                             <p class="text-gray-400">
-                                Follow us for the latest updates, behind-the-scenes content, and exclusive announcements.
+                                @phrase('contact.social.description', 'Follow us for the latest updates, behind-the-scenes content, and exclusive announcements.')
                             </p>
                         </div>
 
                         <!-- Location -->
-                        <div class="bg-gradient-to-br from-gray-800/50 to-black/50 backdrop-blur-sm border border-blue-500/20
-                                    rounded-2xl p-8 hover:border-blue-500/40 transition-all duration-300">
+                        <div class="bg-gradient-to-br from-gray-800/50 to-black/50 backdrop-blur-sm border border-blue-500/20 rounded-2xl p-8 hover:border-blue-500/40 transition-all duration-300">
                             <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
                                 <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
                                     <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -204,10 +221,10 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                                     </svg>
                                 </div>
-                                Based in Netherlands
+                                @phrase('contact.location.heading', 'Based in Netherlands')
                             </h3>
                             <p class="text-gray-300 text-lg leading-relaxed">
-                                Point of Madness is based in the Netherlands, bringing the authentic 80s new wave sound to audiences across Europe and beyond.
+                                @phrase('contact.location.description', 'Point of Madness is based in the Netherlands, bringing the authentic 80s new wave sound to audiences across Europe and beyond.')
                             </p>
                         </div>
                     </div>
@@ -215,11 +232,10 @@
 
                 <!-- Response Promise -->
                 <div class="text-center">
-                    <div class="bg-gradient-to-r from-gray-700/20 to-gray-600/20 backdrop-blur-sm border border-gray-500/20
-                                rounded-xl p-8 max-w-2xl mx-auto">
-                        <h2 class="text-3xl font-bold text-white mb-4">We'll Get Back to You</h2>
+                    <div class="bg-gradient-to-r from-gray-700/20 to-gray-600/20 backdrop-blur-sm border border-gray-500/20 rounded-xl p-8 max-w-2xl mx-auto">
+                        <h2 class="text-3xl font-bold text-white mb-4">@phrase('contact.response.title', "We'll Get Back to You")</h2>
                         <p class="text-gray-300 text-lg">
-                            We aim to respond to all inquiries within 24-48 hours. For urgent booking requests, please mention it in your subject line.
+                            @phrase('contact.response.description', 'We aim to respond to all inquiries within 24-48 hours. For urgent booking requests, please mention it in your subject line.')
                         </p>
                     </div>
                 </div>
@@ -252,16 +268,12 @@
             const csrfTokenMeta = document.querySelector('meta[name="csrf-token"]');
             const csrfToken = csrfTokenMeta ? csrfTokenMeta.getAttribute('content') ?? '' : '';
 
-            const reasonDescriptions = {
-                booking: 'Bookings for festivals, venues, private events, and corporate functions.',
-                general: 'Questions about our music, collaborations, or general information.',
-                press: 'Media inquiries, interviews, and press kit requests.',
-                fans: 'For fans who want to say hi, share feedback, or send a personal message.',
-            };
+            const reasonDescriptions = @json($reasonDescriptions);
+            const defaultMessages = @json($formMessages);
 
             const updateReasonHelp = (value) => {
                 if (!value || !reasonDescriptions[value]) {
-                    reasonHelp.textContent = 'Please choose the option that best fits your message.';
+                    reasonHelp.textContent = defaultMessages.reason_default;
                     return;
                 }
 
@@ -358,7 +370,7 @@
                 }
 
                 if (!combinedMessages.length) {
-                    combinedMessages.push('We couldn\'t send your message yet. Please review the details below.');
+                    combinedMessages.push(defaultMessages.validation_error);
                 }
 
                 errorSummary.textContent = combinedMessages.join(' ');
@@ -433,7 +445,7 @@
                     captchaInput.value = token;
                 } catch (error) {
                     restoreFormState();
-                    errorSummary.textContent = 'Captcha verification failed. Please reload the page and try again.';
+                    errorSummary.textContent = defaultMessages.captcha_failed;
                     errorSummary.classList.remove('hidden');
                     errorSummary.focus();
                     return;
@@ -463,9 +475,9 @@
                     refreshFormStart();
                     updateReasonHelp(reasonSelect.value);
                     captchaInput.value = '';
-                    setSuccessMessage(payload.message ?? 'Thank you! Your message has been sent successfully.');
+                    setSuccessMessage(payload.message ?? defaultMessages.success);
                 } catch (error) {
-                    errorSummary.textContent = 'Something went wrong while sending your message. Please try again in a moment.';
+                    errorSummary.textContent = defaultMessages.error;
                     errorSummary.classList.remove('hidden');
                     errorSummary.focus();
                 } finally {

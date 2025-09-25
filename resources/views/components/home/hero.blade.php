@@ -40,7 +40,7 @@
 
             <!-- The HERO IMAGE - Massive and centered -->
             <div class="relative">
-                <img src="images/pointofmadness.png" alt="Point of Madness Band"
+                <img src="{{ ssot_image_url('home.hero.main') ?? asset('images/pointofmadness.png') }}" alt="@phrase('home.hero.image.alt', 'Point of Madness Band')"
                     class="w-full h-auto max-h-[70vh] object-contain rounded-2xl shadow-2xl mx-auto">
                 <!-- Subtle professional overlay -->
                 <div class="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent rounded-2xl">
@@ -54,18 +54,18 @@
         <h1 class="text-6xl md:text-8xl lg:text-9xl font-black tracking-wider leading-none">
             <span
                 class="bg-gradient-to-r from-blue-400 via-purple-400 to-gray-300 bg-clip-text text-transparent drop-shadow-2xl">
-                POINT OF
+                @phrase('home.hero.title.top', 'POINT OF')
             </span>
             <br>
             <span
                 class="bg-gradient-to-r from-gray-300 via-blue-400 to-purple-400 bg-clip-text text-transparent drop-shadow-2xl">
-                MADNESS
+                @phrase('home.hero.title.bottom', 'MADNESS')
             </span>
         </h1>
 
         <!-- Professional Tagline -->
         <p class="text-xl md:text-3xl text-gray-300 mt-6 font-light tracking-wide">
-            Professional New Wave Revival from the Netherlands
+            @phrase('home.hero.tagline', 'Professional New Wave Revival from the Netherlands')
         </p>
     </div>
 
@@ -78,14 +78,14 @@
                 <div class="flex items-center justify-center mb-4">
                     <span
                         class="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-full text-base font-bold uppercase tracking-wider">
-                        Latest Release
+                        @phrase('home.hero.latest_release.badge', 'Latest Release')
                     </span>
                 </div>
                 <h3 class="text-4xl md:text-5xl font-black text-white mb-3 tracking-wide">{{ $latestRelease->name }}</h3>
-                <p class="text-gray-300 text-lg mb-4">Our newest release - Available on all streaming platforms</p>
+                <p class="text-gray-300 text-lg mb-4">@phrase('home.hero.latest_release.subtitle', 'Our newest release - Available on all streaming platforms')</p>
                 <div class="flex items-center justify-center gap-2 text-gray-400">
                     <div class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-                    <span class="text-sm">Released {{ $latestRelease->release_date?->format('Y') ?? '—' }}</span>
+                    <span class="text-sm">@phrase('home.hero.latest_release.released_prefix', 'Released') {{ $latestRelease->release_date?->format('Y') ?? '—' }}</span>
                     <div class="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></div>
                 </div>
             </div>
@@ -102,7 +102,7 @@
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M8 5v14l11-7z" />
             </svg>
-            Listen Now
+            @phrase('home.hero.listen_button', 'Listen Now')
         </button>
 
         <x-modal.linktree.button />
@@ -112,15 +112,15 @@
     <div class="relative z-10 flex flex-col sm:flex-row gap-6 items-center justify-center text-sm text-gray-400 mb-8">
         <div class="flex items-center gap-2">
             <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
-            <span>Est. 2023</span>
+            <span>@phrase('home.hero.stats.established', 'Est. 2023')</span>
         </div>
         <div class="flex items-center gap-2">
             <div class="w-2 h-2 bg-purple-500 rounded-full"></div>
-            <span>Netherlands</span>
+            <span>@phrase('home.hero.stats.origin', 'Netherlands')</span>
         </div>
         <div class="flex items-center gap-2">
             <div class="w-2 h-2 bg-gray-500 rounded-full"></div>
-            <span>Available for bookings</span>
+            <span>@phrase('home.hero.stats.availability', 'Available for bookings')</span>
         </div>
     </div>
 </div>
