@@ -79,11 +79,11 @@ class SsotSeeder extends Seeder
             'home.members.booking.origin' => 'Netherlands',
             'home.members.booking.size' => '4-piece band',
             'home.upcoming.heading' => 'On Tour',
-            'home.upcoming.subheading' => 'Professional live performances - September 2025',
+            'home.upcoming.subheading' => 'Professional live performances',
             'home.upcoming.cta.title' => 'Stay Connected',
             'home.upcoming.cta.description' => 'Follow our latest updates, tour announcements, and connect with us across all platforms.',
             'events.index.heading' => 'Upcoming Events',
-            'events.index.subheading' => 'Catch Point of Madness live this September',
+            'events.index.subheading' => 'Catch Point of Madness live',
             'events.index.cta.title' => 'Stay Updated',
             'events.index.cta.description' => 'Follow us on social media for the latest tour announcements, behind-the-scenes content, and exclusive updates.',
             'events.index.cta.instagram' => 'Follow on Instagram',
@@ -98,7 +98,7 @@ class SsotSeeder extends Seeder
             'footer.listen.apple_music' => 'Apple Music',
             'footer.connect.instagram' => 'Instagram',
             'footer.connect.tiktok' => 'TikTok',
-            'footer.connect.facebook' => 'Facebook',
+
 
             'footer.contact.booking' => 'Booking',
             'footer.contact.presskit' => 'Press Kit',
@@ -134,7 +134,7 @@ class SsotSeeder extends Seeder
             'modal.linktree.video.toxic.title' => 'TOXIC - Music Video',
             'modal.linktree.video.toxic.description' => 'Official video clip',
             'modal.linktree.footer.tagline' => '🎵 Three-piece band • 80s New Wave Revival • Est. 2023',
-            'modal.linktree.footer.latest' => 'Latest: "Secondary" (2025) • Follow for updates and tour dates',
+            'modal.linktree.footer.latest' => 'Follow for updates and tour dates',
             'contact.heading' => 'Contact Us',
             'contact.subheading' => 'Get in touch for bookings, collaborations, or just to say hello',
             'contact.form.title' => 'Send us a message',
@@ -302,14 +302,7 @@ class SsotSeeder extends Seeder
                 'group' => 'social',
                 'order' => 3,
             ],
-            'social.facebook' => [
-                'label' => 'Facebook',
-                'url' => '#',
-                'target' => '_blank',
-                'rel' => 'noopener',
-                'group' => 'social',
-                'order' => 4,
-            ],
+
 
             'social.youtube' => [
                 'label' => 'YouTube',

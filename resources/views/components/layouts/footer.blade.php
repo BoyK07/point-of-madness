@@ -11,7 +11,6 @@
     $footerConnectLinks = [
         ['slug' => 'social.instagram', 'phrase' => 'footer.connect.instagram', 'default' => 'Instagram', 'hover' => 'hover:text-pink-400'],
         ['slug' => 'social.tiktok', 'phrase' => 'footer.connect.tiktok', 'default' => 'TikTok', 'hover' => 'hover:text-pink-400'],
-        ['slug' => 'social.facebook', 'phrase' => 'footer.connect.facebook', 'default' => 'Facebook', 'hover' => 'hover:text-blue-400'],
     ];
 
     $footerContactLinks = [
@@ -87,8 +86,7 @@
                     <div class="space-y-2">
                         @foreach($footerContactLinks as $item)
                             @php $link = ssot_links($item['slug'])->first(); @endphp
-                            <a href="{{ $link?->url ?? '#' }}" target="{{ $link?->target ?? '_blank' }}"
-                               @if($link?->rel) rel="{{ $link->rel }}" @endif
+                            <a href="/contact" target="_self"
                                class="block py-1.5 text-gray-400 hover:text-purple-400 transition-colors duration-300">
                                 {{ $link?->label ?? phrase($item['phrase'], $item['default']) }}
                             </a>

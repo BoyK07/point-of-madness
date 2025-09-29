@@ -18,7 +18,7 @@
                 </span>
             </h2>
             <div class="w-20 sm:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
-            <p class="text-gray-400 mt-6 text-base sm:text-lg">@phrase('home.upcoming.subheading', 'Professional live performances - September 2025')</p>
+            <p class="text-gray-400 mt-6 text-base sm:text-lg">@phrase('home.upcoming.subheading', 'Professional live performances')</p>
         </div>
 
         <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8">
