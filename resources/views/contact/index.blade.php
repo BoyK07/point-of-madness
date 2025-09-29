@@ -19,7 +19,7 @@
         ];
     @endphp
 
-    <div class="relative min-h-screen">
+    <div class="relative min-h-screen overflow-hidden">
         <!-- Background matching homepage -->
         <div class="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-800 to-black">
             <div class="absolute inset-0 opacity-5">

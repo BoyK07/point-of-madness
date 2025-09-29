@@ -15,10 +15,10 @@
             }
         </style>
     </head>
-    <body class="bg-[#1f0f12] text-white min-h-screen antialiased">
+    <body class="bg-[#1f0f12] text-white min-h-screen antialiased overflow-x-hidden">
         <div class="min-h-screen flex flex-col">
             <!-- Professional Admin Header with Gradient Effects -->
-            <header class="bg-[#1d2634] sticky top-0 z-50 shadow-lg border-b border-gray-700/50" x-data="{ open: false }" @keydown.window.escape="open = false">
+            <header class="bg-[#1d2634] sticky top-0 z-50 shadow-lg border-b border-gray-700/50 overflow-hidden" x-data="{ open: false }" @keydown.window.escape="open = false">
                 <!-- Subtle professional background -->
                 <div class="absolute inset-0 bg-gradient-to-r from-blue-900/10 via-purple-900/15 to-gray-900/10"></div>
 
@@ -57,10 +57,16 @@
 
                         <!-- Navigation -->
                         <nav id="admin-navigation"
+                             x-show="open"
+                             x-transition:enter="transition ease-out duration-200"
+                             x-transition:enter-start="opacity-0 -translate-y-2"
+                             x-transition:enter-end="opacity-100 translate-y-0"
+                             x-transition:leave="transition ease-in duration-150"
+                             x-transition:leave-start="opacity-100 translate-y-0"
+                             x-transition:leave-end="opacity-0 -translate-y-2"
                              class="flex flex-col gap-2 pt-2 border-t border-gray-700/40 text-sm md:border-none md:pt-0 md:flex md:flex-row md:flex-wrap md:items-center md:justify-between"
-                             :class="{ 'hidden': !open }"
                              @click.outside="open = false"
-                             x-cloak>
+                             style="display: none;" x-cloak>
                             <div class="flex flex-col gap-2 md:flex-row md:flex-wrap md:items-center md:gap-1">
                                 <a href="{{ route('admin.dashboard') }}"
                                    @click="open = false"
@@ -114,7 +120,7 @@
             </header>
 
             <!-- Enhanced Background -->
-            <div class="relative flex-1">
+            <div class="relative flex-1 overflow-hidden">
                 <!-- Professional background with subtle texture -->
                 <div class="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-800 to-black">
                     <div class="absolute inset-0 opacity-5">

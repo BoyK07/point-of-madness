@@ -10,7 +10,7 @@
 <nav x-data="{ open: false }" class="bg-[#1d2634] sticky top-0 z-50 shadow-sm border-b border-gray-700/50">
     <!-- Subtle professional background -->
     <div class="absolute inset-0 bg-gradient-to-r from-blue-900/5 via-purple-900/10 to-gray-900/5"></div>
-    
+
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="flex h-16 sm:h-20">
@@ -70,12 +70,15 @@
             </div>
 
             <!-- Mobile Hamburger -->
-            <div class="-me-2 flex items-center sm:hidden">
-                <button @click="open = ! open" 
-                        class="inline-flex items-center justify-center p-2 rounded-lg text-gray-400 hover:text-white 
-                               hover:bg-gray-700/50 focus:outline-none focus:bg-gray-700/50 focus:text-white 
+            <div class="flex items-center sm:hidden">
+                <button @click="open = ! open"
+                        :aria-expanded="open.toString()"
+                        aria-controls="primary-mobile-menu"
+                        aria-label="Toggle navigation"
+                        class="inline-flex items-center justify-center p-2 rounded-lg text-gray-400 hover:text-white
+                               hover:bg-gray-700/50 focus:outline-none focus:bg-gray-700/50 focus:text-white
                                transition duration-300 ease-in-out">
-                    <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                    <svg class="h-6 w-6 transition-transform duration-200" :class="{'rotate-90': open}" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                         <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
@@ -85,7 +88,15 @@
     </div>
 
     <!-- Mobile Navigation Menu -->
-    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden bg-gray-800/90 backdrop-blur-sm border-t border-gray-700/50">
+    <div id="primary-mobile-menu" x-show="open"
+         x-transition:enter="transition ease-out duration-200"
+         x-transition:enter-start="opacity-0 -translate-y-2"
+         x-transition:enter-end="opacity-100 translate-y-0"
+         x-transition:leave="transition ease-in duration-150"
+         x-transition:leave-start="opacity-100 translate-y-0"
+         x-transition:leave-end="opacity-0 -translate-y-2"
+         class="sm:hidden bg-gray-800/90 backdrop-blur-sm border-t border-gray-700/50"
+         style="display: none;" x-cloak>
         <div class="pt-2 pb-3 space-y-1 px-4">
             <x-responsive-nav-link :href="$navHome?->url ?? route('index')" :active="request()->routeIs('index')"
                                    class="block px-4 py-3 font-medium transition-all duration-300

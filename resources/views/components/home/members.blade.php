@@ -1,5 +1,5 @@
 <!-- Professional Members Section -->
-<div class="relative py-16 sm:py-24 px-4 sm:px-6 lg:px-12">
+<div class="relative py-16 sm:py-24 px-4 sm:px-6 lg:px-12 overflow-hidden">
     <!-- Professional Background -->
     <div class="absolute inset-0 bg-gradient-to-r from-gray-900/30 to-gray-800/30"></div>
     <div class="absolute top-1/2 left-0 w-56 h-56 sm:w-64 sm:h-64 bg-blue-900/10 rounded-full filter blur-3xl hidden sm:block"></div>
@@ -53,37 +53,37 @@
             @foreach($members as $member)
                 <div class="group relative">
                     <!-- Professional Card Container -->
-                    <div class="relative bg-gradient-to-br from-gray-800/50 to-black/50 backdrop-blur-sm 
-                                border border-{{ $member['accent'] }}-500/20 rounded-2xl overflow-hidden 
+                    <div class="relative bg-gradient-to-br from-gray-800/50 to-black/50 backdrop-blur-sm
+                                border border-{{ $member['accent'] }}-500/20 rounded-2xl overflow-hidden
                                 transform transition-all duration-300 hover:scale-105 hover:border-{{ $member['accent'] }}-500/40
                                 hover:shadow-xl hover:shadow-{{ $member['accent'] }}-500/20">
-                        
+
                         <!-- Member Image -->
                         <div class="relative h-72 sm:h-80 overflow-hidden">
                             <img src="{{ $member['imagePath'] }}" alt="{{ $member['name'] }}"
                                  class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
-                            
+
                             <!-- Professional Gradient Overlay -->
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-                            
+
                             <!-- Role Badge -->
                             <div class="absolute top-4 right-4">
-                                <span class="bg-gradient-to-r from-{{ $member['accent'] }}-600 to-{{ $member['accent'] }}-700 
+                                <span class="bg-gradient-to-r from-{{ $member['accent'] }}-600 to-{{ $member['accent'] }}-700
                                            text-white px-3 py-1 rounded-full text-sm font-semibold">
                                     {{ $member['role'] }}
                                 </span>
                             </div>
                         </div>
-                        
+
                         <!-- Member Info -->
                         <div class="p-5 sm:p-6">
                             <h3 class="text-lg sm:text-xl font-bold text-white mb-2">{{ $member['name'] }}</h3>
                             <p class="text-gray-300 text-sm leading-relaxed">{{ $member['description'] }}</p>
-                            
+
                             <!-- Professional Line -->
                             <div class="mt-4 w-full h-px bg-gradient-to-r from-{{ $member['accent'] }}-500/50 to-transparent"></div>
                         </div>
-                        
+
                         <!-- Subtle Hover Effect -->
                         <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                             <div class="absolute inset-0 bg-gradient-to-br from-{{ $member['accent'] }}-500/5 to-transparent"></div>
@@ -92,7 +92,7 @@
                 </div>
             @endforeach
         </div>
-        
+
         <!-- Professional Bottom Section -->
         <div class="mt-12 sm:mt-16 text-center">
             <div class="bg-gray-800/30 backdrop-blur-sm border border-gray-600/30 rounded-xl p-6 sm:p-8 max-w-2xl mx-auto">

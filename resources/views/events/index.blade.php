@@ -5,22 +5,22 @@
 
 <x-app-layout>
     <!-- Professional Events Page -->
-    <div class="relative min-h-screen">
+    <div class="relative min-h-screen overflow-hidden">
         <!-- Background matching homepage -->
         <div class="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-800 to-black">
             <div class="absolute inset-0 opacity-5">
-                <div class="absolute inset-0" style="background-image: 
+                <div class="absolute inset-0" style="background-image:
                     linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
                     linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
                     background-size: 30px 30px;">
                 </div>
             </div>
         </div>
-        
+
         <!-- Ambient effects -->
         <div class="absolute top-1/4 left-1/4 w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-blue-900/10 rounded-full filter blur-3xl hidden sm:block"></div>
         <div class="absolute bottom-1/4 right-1/4 w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-purple-900/10 rounded-full filter blur-3xl hidden sm:block"></div>
-        
+
         <!-- Content -->
         <div class="relative z-10 py-16 sm:py-24 px-4 sm:px-6 lg:px-10">
             <div class="max-w-6xl mx-auto">
@@ -52,7 +52,7 @@
                                         border border-{{ $accent }}-500/20 rounded-2xl overflow-hidden
                                         transform transition-all duration-300 hover:scale-105 hover:border-{{ $accent }}-500/40
                                         hover:shadow-xl hover:shadow-{{ $accent }}-500/20">
-                                
+
                                 <!-- Event Header -->
                                 <div class="bg-gradient-to-r from-{{ $accent }}-600 to-{{ $accent }}-700 p-5 sm:p-6 text-center">
                                     <div class="text-white">
@@ -61,7 +61,7 @@
                                         <div class="text-xs sm:text-sm opacity-90">{{ $event->starts_at?->format('l') ?? '' }}</div>
                                     </div>
                                 </div>
-                                
+
                                 <!-- Event Details -->
                                 <div class="p-5 sm:p-6 space-y-4">
                                     <div class="text-center">

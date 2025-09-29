@@ -4,7 +4,7 @@
 @endphp
 
 <!-- Professional Upcoming Shows Section -->
-<div class="relative py-16 sm:py-24 px-4 sm:px-6 lg:px-12">
+<div class="relative py-16 sm:py-24 px-4 sm:px-6 lg:px-12 overflow-hidden">
     <!-- Professional Background -->
     <div class="absolute inset-0 bg-gradient-to-br from-gray-900/30 via-gray-800/30 to-gray-700/30"></div>
     <div class="absolute top-0 right-1/3 w-48 h-48 sm:w-64 sm:h-64 bg-blue-900/10 rounded-full filter blur-3xl hidden sm:block"></div>
