@@ -12,7 +12,6 @@
         ['slug' => 'social.instagram', 'phrase' => 'footer.connect.instagram', 'default' => 'Instagram', 'hover' => 'hover:text-pink-400'],
         ['slug' => 'social.tiktok', 'phrase' => 'footer.connect.tiktok', 'default' => 'TikTok', 'hover' => 'hover:text-pink-400'],
         ['slug' => 'social.facebook', 'phrase' => 'footer.connect.facebook', 'default' => 'Facebook', 'hover' => 'hover:text-blue-400'],
-        ['slug' => 'social.twitter', 'phrase' => 'footer.connect.twitter', 'default' => 'Twitter', 'hover' => 'hover:text-cyan-400'],
     ];
 
     $footerContactLinks = [
@@ -24,44 +23,43 @@
     $iconSpotify = ssot_links('social.spotify')->first();
     $iconInstagram = ssot_links('social.instagram')->first();
     $iconTiktok = ssot_links('social.tiktok')->first();
-    $iconTwitter = ssot_links('social.twitter')->first();
     $iconYoutube = ssot_links('social.youtube')->first();
     $iconYoutubeMusic = ssot_links('social.youtube_music')->first();
 @endphp
 
-<footer class="relative mt-24 py-16 px-6">
+<footer class="relative mt-24 py-12 sm:py-16 px-4 sm:px-6 overflow-hidden">
     <!-- Professional Background -->
     <div class="absolute inset-0 bg-gradient-to-t from-black via-gray-900/30 to-transparent"></div>
-    <div class="absolute bottom-0 left-1/4 w-96 h-96 bg-blue-900/5 rounded-full filter blur-3xl"></div>
-    <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-900/5 rounded-full filter blur-3xl"></div>
-    
-    <div class="relative max-w-4xl mx-auto">
+    <div class="absolute bottom-0 left-1/4 w-96 h-96 bg-blue-900/5 rounded-full filter blur-3xl hidden sm:block"></div>
+    <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-900/5 rounded-full filter blur-3xl hidden sm:block"></div>
+
+    <div class="relative max-w-4xl sm:max-w-5xl mx-auto">
         <!-- Main Footer Content -->
         <div class="text-center space-y-8">
             <!-- Band Logo/Name -->
             <div class="mb-12">
-                <h3 class="text-3xl font-black tracking-wider mb-2">
+                <h3 class="text-2xl sm:text-3xl font-black tracking-wider mb-2">
                     <span class="bg-gradient-to-r from-blue-400 via-purple-400 to-gray-400 bg-clip-text text-transparent">
                         @phrase('footer.brand.heading', 'POINT OF MADNESS')
                     </span>
                 </h3>
                 <div class="w-32 h-px bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
-                <p class="text-gray-400 mt-4 text-sm">
+                <p class="text-gray-400 mt-4 text-xs sm:text-sm">
                     @phrase('footer.brand.subtitle', 'Reviving 80s New Wave • Netherlands • Since 2023')
                 </p>
             </div>
 
             <!-- Quick Links -->
-            <div class="grid md:grid-cols-3 gap-8 mb-12">
+            <div class="grid gap-6 grid-cols-2 sm:gap-8 sm:grid-cols-2 md:grid-cols-3 mb-12 text-left sm:text-center md:text-left">
                 <!-- Music Links -->
                 <div>
-                    <h4 class="text-white font-semibold mb-4 text-lg">@phrase('footer.listen.heading', 'Listen')</h4>
+                    <h4 class="text-white font-semibold mb-4 text-base sm:text-lg">@phrase('footer.listen.heading', 'Listen')</h4>
                     <div class="space-y-2">
                         @foreach($footerListenLinks as $item)
                             @php $link = ssot_links($item['slug'])->first(); @endphp
                             <a href="{{ $link?->url ?? '#' }}" target="{{ $link?->target ?? '_blank' }}"
                                @if($link?->rel) rel="{{ $link->rel }}" @endif
-                               class="block text-gray-400 {{ $item['hover'] }} transition-colors duration-300">
+                               class="block py-1.5 text-gray-400 {{ $item['hover'] }} transition-colors duration-300">
                                 {{ $link?->label ?? phrase($item['phrase'], $item['default']) }}
                             </a>
                         @endforeach
@@ -70,13 +68,13 @@
 
                 <!-- Social Media -->
                 <div>
-                    <h4 class="text-white font-semibold mb-4 text-lg">@phrase('footer.connect.heading', 'Connect')</h4>
+                    <h4 class="text-white font-semibold mb-4 text-base sm:text-lg">@phrase('footer.connect.heading', 'Connect')</h4>
                     <div class="space-y-2">
                         @foreach($footerConnectLinks as $item)
                             @php $link = ssot_links($item['slug'])->first(); @endphp
                             <a href="{{ $link?->url ?? '#' }}" target="{{ $link?->target ?? '_blank' }}"
                                @if($link?->rel) rel="{{ $link->rel }}" @endif
-                               class="block text-gray-400 {{ $item['hover'] }} transition-colors duration-300">
+                               class="block py-1.5 text-gray-400 {{ $item['hover'] }} transition-colors duration-300">
                                 {{ $link?->label ?? phrase($item['phrase'], $item['default']) }}
                             </a>
                         @endforeach
@@ -84,14 +82,14 @@
                 </div>
 
                 <!-- Contact -->
-                <div>
-                    <h4 class="text-white font-semibold mb-4 text-lg">@phrase('footer.contact.heading', 'Contact')</h4>
+                <div class="col-span-2 sm:col-span-1">
+                    <h4 class="text-white font-semibold mb-4 text-base sm:text-lg">@phrase('footer.contact.heading', 'Contact')</h4>
                     <div class="space-y-2">
                         @foreach($footerContactLinks as $item)
                             @php $link = ssot_links($item['slug'])->first(); @endphp
                             <a href="{{ $link?->url ?? '#' }}" target="{{ $link?->target ?? '_blank' }}"
                                @if($link?->rel) rel="{{ $link->rel }}" @endif
-                               class="block text-gray-400 hover:text-purple-400 transition-colors duration-300">
+                               class="block py-1.5 text-gray-400 hover:text-purple-400 transition-colors duration-300">
                                 {{ $link?->label ?? phrase($item['phrase'], $item['default']) }}
                             </a>
                         @endforeach
@@ -100,10 +98,10 @@
             </div>
 
             <!-- Social Icons -->
-            <div class="flex justify-center space-x-6 mb-8">
+            <div class="flex flex-wrap justify-center gap-4 sm:gap-6 mb-8">
                 <a href="{{ $iconSpotify?->url ?? '#' }}" target="{{ $iconSpotify?->target ?? '_blank' }}"
                    @if($iconSpotify?->rel) rel="{{ $iconSpotify->rel }}" @endif
-                   class="group w-12 h-12 bg-gradient-to-br from-green-500/20 to-green-600/20
+                   class="group w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-green-500/20 to-green-600/20
                           border border-green-500/30 rounded-full flex items-center justify-center
                           hover:border-green-500 hover:bg-green-500/10 transition-all duration-300
                           transform hover:scale-110">
@@ -114,7 +112,7 @@
 
                 <a href="{{ $iconInstagram?->url ?? '#' }}" target="{{ $iconInstagram?->target ?? '_blank' }}"
                    @if($iconInstagram?->rel) rel="{{ $iconInstagram->rel }}" @endif
-                   class="group w-12 h-12 bg-gradient-to-br from-pink-500/20 to-purple-600/20
+                   class="group w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-pink-500/20 to-purple-600/20
                           border border-pink-500/30 rounded-full flex items-center justify-center
                           hover:border-pink-500 hover:bg-pink-500/10 transition-all duration-300
                           transform hover:scale-110">
@@ -125,7 +123,7 @@
 
                 <a href="{{ $iconTiktok?->url ?? '#' }}" target="{{ $iconTiktok?->target ?? '_blank' }}"
                    @if($iconTiktok?->rel) rel="{{ $iconTiktok->rel }}" @endif
-                   class="group w-12 h-12 bg-gradient-to-br from-gray-500/20 to-gray-600/20
+                   class="group w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-gray-500/20 to-gray-600/20
                           border border-gray-500/30 rounded-full flex items-center justify-center
                           hover:border-gray-500 hover:bg-gray-500/10 transition-all duration-300
                           transform hover:scale-110">
@@ -134,20 +132,11 @@
                     </svg>
                 </a>
 
-                <a href="{{ $iconTwitter?->url ?? '#' }}" target="{{ $iconTwitter?->target ?? '_blank' }}"
-                   @if($iconTwitter?->rel) rel="{{ $iconTwitter->rel }}" @endif
-                   class="group w-12 h-12 bg-gradient-to-br from-blue-500/20 to-blue-600/20
-                          border border-blue-500/30 rounded-full flex items-center justify-center
-                          hover:border-blue-500 hover:bg-blue-500/10 transition-all duration-300
-                          transform hover:scale-110">
-                    <svg class="w-6 h-6 text-blue-400 group-hover:text-blue-300" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
-                    </svg>
-                </a>
+
 
                 <a href="{{ $iconYoutube?->url ?? '#' }}" target="{{ $iconYoutube?->target ?? '_blank' }}"
                    @if($iconYoutube?->rel) rel="{{ $iconYoutube->rel }}" @endif
-                   class="group w-12 h-12 bg-gradient-to-br from-red-500/20 to-red-600/20
+                   class="group w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-red-500/20 to-red-600/20
                           border border-red-500/30 rounded-full flex items-center justify-center
                           hover:border-red-500 hover:bg-red-500/10 transition-all duration-300
                           transform hover:scale-110">
@@ -158,7 +147,7 @@
 
                 <a href="{{ $iconYoutubeMusic?->url ?? '#' }}" target="{{ $iconYoutubeMusic?->target ?? '_blank' }}"
                    @if($iconYoutubeMusic?->rel) rel="{{ $iconYoutubeMusic->rel }}" @endif
-                   class="group w-12 h-12 bg-gradient-to-br from-red-500/20 to-red-600/20
+                   class="group w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-red-500/20 to-red-600/20
                           border border-red-500/30 rounded-full flex items-center justify-center
                           hover:border-red-500 hover:bg-red-500/10 transition-all duration-300
                           transform hover:scale-110">
@@ -170,7 +159,7 @@
 
             <!-- Copyright and Footer Info -->
             <div class="border-t border-gray-700 pt-8 space-y-4">
-                <div class="flex flex-col md:flex-row justify-center items-center gap-4 text-gray-400 text-sm">
+                <div class="flex flex-col md:flex-row justify-center items-center gap-2 sm:gap-4 text-gray-400 text-xs sm:text-sm">
                     <div>&copy; {{ Carbon::now()->year }} @phrase('footer.copyright.owner', 'Point of Madness'). @phrase('footer.copyright.rights', 'All rights reserved.')</div>
                     <div class="hidden md:block text-gray-600">•</div>
                     <div>@phrase('footer.craft', 'Made with 💜 for the new wave revival')</div>

@@ -1,7 +1,7 @@
 @props(['latestRelease' => null])
 
 <!-- Hero Section - Image-Focused Design -->
-<div class="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden">
+<div class="relative w-full min-h-[80vh] sm:min-h-[85vh] md:min-h-screen flex flex-col items-center justify-center overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-20">
     <!-- Dark Professional Background -->
     <div class="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-800 to-black">
         <!-- Subtle texture overlay -->
@@ -16,19 +16,19 @@
     </div>
 
     <!-- Enhanced ambient effects for focus -->
-    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-900/20 rounded-full filter blur-3xl"></div>
-    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-900/20 rounded-full filter blur-3xl"></div>
+    <div class="absolute top-1/4 left-1/4 w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-blue-900/20 rounded-full filter blur-3xl hidden sm:block"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-purple-900/20 rounded-full filter blur-3xl hidden sm:block"></div>
     <div
-        class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-blue-900/10 via-purple-900/15 to-gray-900/10 rounded-full filter blur-3xl">
+        class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[520px] h-[520px] sm:w-[640px] sm:h-[640px] lg:w-[800px] lg:h-[800px] bg-gradient-to-r from-blue-900/10 via-purple-900/15 to-gray-900/10 rounded-full filter blur-3xl hidden md:block">
     </div>
 
     <!-- Logo Space Reserved for Future -->
-    <div class="relative z-10 w-full max-w-7xl mx-auto px-6 py-8">
+    <div class="relative z-10 w-full max-w-screen-xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-12 py-4">
         <!-- Space reserved for future logo implementation -->
     </div>
 
     <!-- MASSIVE Hero Image - Center of Attention -->
-    <div class="relative z-10 w-full max-w-6xl mx-auto px-6 mb-12">
+    <div class="relative z-10 w-full max-w-screen-lg xl:max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-12 mb-10 sm:mb-14">
         <div class="relative group">
             <!-- Dramatic glow effect -->
             <div
@@ -41,7 +41,7 @@
             <!-- The HERO IMAGE - Massive and centered -->
             <div class="relative">
                 <img src="{{ ssot_image_url('home.hero.main') ?? asset('images/pointofmadness.png') }}" alt="@phrase('home.hero.image.alt', 'Point of Madness Band')"
-                    class="w-full h-auto max-h-[70vh] object-contain rounded-2xl shadow-2xl mx-auto">
+                    class="w-full h-auto max-h-[60vh] sm:max-h-[65vh] lg:max-h-[70vh] object-contain rounded-2xl shadow-2xl mx-auto">
                 <!-- Subtle professional overlay -->
                 <div class="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent rounded-2xl">
                 </div>
@@ -50,8 +50,8 @@
     </div>
 
     <!-- Band Name - Perfectly Aligned with Image -->
-    <div class="relative z-10 text-center mb-8">
-        <h1 class="text-6xl md:text-8xl lg:text-9xl font-black tracking-wider leading-none">
+    <div class="relative z-10 text-center mb-8 px-6 sm:px-0">
+        <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-wider leading-tight">
             <span
                 class="bg-gradient-to-r from-blue-400 via-purple-400 to-gray-300 bg-clip-text text-transparent drop-shadow-2xl">
                 @phrase('home.hero.title.top', 'POINT OF')
@@ -64,25 +64,25 @@
         </h1>
 
         <!-- Professional Tagline -->
-        <p class="text-xl md:text-3xl text-gray-300 mt-6 font-light tracking-wide">
+        <p class="text-lg sm:text-xl md:text-2xl text-gray-300 mt-6 font-light tracking-wide max-w-3xl mx-auto">
             @phrase('home.hero.tagline', 'Professional New Wave Revival from the Netherlands')
         </p>
     </div>
 
     @if ($latestRelease && $latestRelease->release_date && $latestRelease->release_date->diffInDays(now()) < 30)
         <!-- Latest Release Highlight - Expanded -->
-        <div class="relative z-10 mb-8">
+        <div class="relative z-10 mb-10">
             <div
                 class="bg-gray-800/70 backdrop-blur-sm border border-gray-600/50
-                    rounded-2xl p-8 max-w-2xl mx-auto text-center shadow-2xl shadow-black/50">
+                    rounded-2xl px-6 py-6 sm:px-8 sm:py-8 max-w-2xl mx-auto text-center shadow-2xl shadow-black/50">
                 <div class="flex items-center justify-center mb-4">
                     <span
                         class="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-full text-base font-bold uppercase tracking-wider">
                         @phrase('home.hero.latest_release.badge', 'Latest Release')
                     </span>
                 </div>
-                <h3 class="text-4xl md:text-5xl font-black text-white mb-3 tracking-wide">{{ $latestRelease->name }}</h3>
-                <p class="text-gray-300 text-lg mb-4">@phrase('home.hero.latest_release.subtitle', 'Our newest release - Available on all streaming platforms')</p>
+                <h3 class="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-3 tracking-wide">{{ $latestRelease->name }}</h3>
+                <p class="text-gray-300 text-base sm:text-lg mb-4">@phrase('home.hero.latest_release.subtitle', 'Our newest release - Available on all streaming platforms')</p>
                 <div class="flex items-center justify-center gap-2 text-gray-400">
                     <div class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
                     <span class="text-sm">@phrase('home.hero.latest_release.released_prefix', 'Released') {{ $latestRelease->release_date?->format('Y') ?? '—' }}</span>
@@ -93,12 +93,12 @@
     @endif
 
     <!-- Professional Action Buttons -->
-    <div class="relative z-10 flex flex-col sm:flex-row gap-4 items-center justify-center mb-8">
+    <div class="relative z-10 flex flex-col sm:flex-row gap-4 items-center justify-center mb-10 px-6 sm:px-0">
         <button
             class="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600
                       text-white font-semibold rounded-full hover:from-blue-500 hover:to-purple-500
                       transition-all duration-300 transform hover:scale-105 hover:shadow-xl
-                      hover:shadow-blue-500/30 flex items-center gap-3">
+                      hover:shadow-blue-500/30 flex items-center gap-3 w-full sm:w-auto justify-center">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M8 5v14l11-7z" />
             </svg>
@@ -109,7 +109,7 @@
     </div>
 
     <!-- Professional Credentials -->
-    <div class="relative z-10 flex flex-col sm:flex-row gap-6 items-center justify-center text-sm text-gray-400 mb-8">
+    <div class="relative z-10 flex flex-col sm:flex-row gap-4 sm:gap-6 items-center justify-center text-sm text-gray-400 mb-4 sm:mb-8 px-6 sm:px-0">
         <div class="flex items-center gap-2">
             <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
             <span>@phrase('home.hero.stats.established', 'Est. 2023')</span>

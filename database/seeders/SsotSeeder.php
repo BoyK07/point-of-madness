@@ -99,7 +99,7 @@ class SsotSeeder extends Seeder
             'footer.connect.instagram' => 'Instagram',
             'footer.connect.tiktok' => 'TikTok',
             'footer.connect.facebook' => 'Facebook',
-            'footer.connect.twitter' => 'Twitter',
+
             'footer.contact.booking' => 'Booking',
             'footer.contact.presskit' => 'Press Kit',
             'footer.contact.management' => 'Management',
@@ -310,14 +310,7 @@ class SsotSeeder extends Seeder
                 'group' => 'social',
                 'order' => 4,
             ],
-            'social.twitter' => [
-                'label' => 'Twitter',
-                'url' => '#',
-                'target' => '_blank',
-                'rel' => 'noopener',
-                'group' => 'social',
-                'order' => 5,
-            ],
+
             'social.youtube' => [
                 'label' => 'YouTube',
                 'url' => 'https://www.youtube.com/@PointofMadness',

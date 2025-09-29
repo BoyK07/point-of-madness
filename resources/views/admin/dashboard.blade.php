@@ -1,16 +1,16 @@
 <x-admin-layout>
     <!-- Welcome Section -->
     <div class="relative mb-8">
-        <div class="bg-gray-800/70 backdrop-blur-sm border border-gray-600/50 rounded-2xl p-8 shadow-2xl shadow-black/50">
+        <div class="bg-gray-800/70 backdrop-blur-sm border border-gray-600/50 rounded-2xl p-6 sm:p-8 shadow-2xl shadow-black/50">
             <!-- Subtle glow effect -->
             <div class="absolute -inset-1 bg-gradient-to-r from-blue-600/20 via-purple-600/30 to-blue-600/20 rounded-2xl blur-xl opacity-50"></div>
             <div class="relative">
-                <div class="flex items-center justify-between mb-4">
-                    <div>
+                <div class="flex flex-col gap-4 sm:gap-6 md:flex-row md:items-center md:justify-between mb-4">
+                    <div class="space-y-2">
                         <h2 class="text-3xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-gray-300 bg-clip-text text-transparent">
                             Dashboard Overview
                         </h2>
-                        <p class="text-gray-400 mt-2">Welkom terug! Hier is een overzicht van je content management systeem.</p>
+                        <p class="text-gray-400">Welkom terug! Hier is een overzicht van je content management systeem.</p>
                     </div>
                     <div class="flex items-center gap-2 text-gray-400">
                         <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
@@ -132,15 +132,15 @@
     <!-- Quick Actions Section -->
     <div class="relative">
         <div class="absolute -inset-1 bg-gradient-to-r from-blue-600/20 via-purple-600/30 to-blue-600/20 rounded-2xl blur-xl opacity-50"></div>
-        <div class="relative bg-gray-800/70 backdrop-blur-sm border border-gray-600/50 rounded-2xl p-8 shadow-2xl shadow-black/50">
-            <div class="flex items-center justify-between mb-6">
-                <div>
+        <div class="relative bg-gray-800/70 backdrop-blur-sm border border-gray-600/50 rounded-2xl p-6 sm:p-8 shadow-2xl shadow-black/50">
+            <div class="flex flex-col gap-4 sm:gap-6 md:flex-row md:items-center md:justify-between mb-6">
+                <div class="space-y-1">
                     <h2 class="text-2xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-gray-300 bg-clip-text text-transparent">
                         Snelle Acties
                     </h2>
                     <p class="text-gray-400 mt-1">Veelgebruikte functies binnen handbereik</p>
                 </div>
-                <div class="w-10 h-10 bg-gradient-to-br from-blue-500/20 to-purple-600/20 border border-blue-500/30 rounded-lg flex items-center justify-center">
+                <div class="w-10 h-10 bg-gradient-to-br from-blue-500/20 to-purple-600/20 border border-blue-500/30 rounded-lg flex items-center justify-center self-start md:self-auto">
                     <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                     </svg>

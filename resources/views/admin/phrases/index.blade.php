@@ -17,17 +17,17 @@
                         <p class="text-gray-400">Beheer alle teksten en vertalingen voor de website</p>
                     </div>
                 </div>
-                <div class="flex flex-col md:flex-row gap-3 md:items-center">
-                    <form method="GET" action="{{ route('admin.phrases.index') }}" class="flex items-center gap-2">
-                        <div class="relative">
+                <div class="flex flex-col md:flex-row gap-4 md:items-center md:justify-end">
+                    <form method="GET" action="{{ route('admin.phrases.index') }}" class="flex flex-col sm:flex-row sm:items-center gap-3">
+                        <div class="relative w-full sm:w-auto">
                             <input type="text" name="q" value="{{ $search ?? '' }}" placeholder="Zoek in tekst, sleutel of context"
-                                   class="w-64 md:w-96 rounded-xl bg-gray-900/70 border border-gray-700/60 text-gray-200 placeholder-gray-500 px-10 py-2 focus:outline-none focus:border-indigo-500/60 focus:ring-0">
+                                   class="w-full sm:w-64 md:w-96 rounded-xl bg-gray-900/70 border border-gray-700/60 text-gray-200 placeholder-gray-500 px-10 py-2 focus:outline-none focus:border-indigo-500/60 focus:ring-0">
                             <svg class="w-5 h-5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z" />
                             </svg>
                         </div>
                         @if(!empty($search))
-                            <a href="{{ route('admin.phrases.index') }}" class="px-3 py-2 rounded-lg bg-gray-800/70 border border-gray-700/60 text-gray-300 hover:text-white hover:border-gray-500 transition">Wissen</a>
+                            <a href="{{ route('admin.phrases.index') }}" class="px-3 py-2 rounded-lg bg-gray-800/70 border border-gray-700/60 text-gray-300 hover:text-white hover:border-gray-500 transition text-center">Wissen</a>
                         @endif
                         <button type="submit"
                                 class="px-4 py-2 rounded-lg bg-gradient-to-r from-indigo-600 to-blue-600 text-white font-semibold hover:from-indigo-500 hover:to-blue-500 transition">
@@ -36,9 +36,9 @@
                     </form>
 
                     <a href="{{ route('admin.phrases.create') }}"
-                       class="group inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-600 to-blue-600
+                       class="group inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-600 to-blue-600
                               text-white font-semibold rounded-xl hover:from-indigo-500 hover:to-blue-500
-                              transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-indigo-500/30">
+                              transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-indigo-500/30 w-full md:w-auto">
                         <svg class="w-5 h-5 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                         </svg>
