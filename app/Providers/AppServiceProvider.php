@@ -11,6 +11,7 @@ use App\Observers\LinkObserver;
 use App\Observers\MediaObserver;
 use App\Observers\PhraseObserver;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -36,5 +37,9 @@ class AppServiceProvider extends ServiceProvider
         Blade::directive('phrase', function ($expression) {
             return "<?= e(phrase({$expression})); ?>";
         });
+
+        if ($this->app->environment('production')) {
+            URL::forceScheme('https');
+        }
     }
 }
